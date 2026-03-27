@@ -67,6 +67,83 @@
   }
 }
 
+/* Urban Street Animations */
+@keyframes urban-slide-left {
+  0% {
+    transform: translateX(100vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-100px) rotate(360deg);
+  }
+}
+
+@keyframes urban-slide-right {
+  0% {
+    transform: translateX(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100vw) rotate(-360deg);
+  }
+}
+
+@keyframes urban-bounce-up {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-100px) scale(1.3);
+  }
+}
+
+@keyframes urban-float-diagonal-slow {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(50px, -50px) rotate(90deg) scale(1.2);
+  }
+  50% {
+    transform: translate(100px, 0) rotate(180deg) scale(1);
+  }
+  75% {
+    transform: translate(50px, 50px) rotate(270deg) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes urban-zoom-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+.urban-slide-left {
+  animation: urban-slide-left 25s linear infinite;
+}
+
+.urban-slide-right {
+  animation: urban-slide-right 30s linear infinite;
+}
+
+.urban-bounce-up {
+  animation: urban-bounce-up 4s ease-in-out infinite;
+}
+
+.urban-float-diagonal-slow {
+  animation: urban-float-diagonal-slow 10s ease-in-out infinite;
+}
+
+.urban-zoom-pulse {
+  animation: urban-zoom-pulse 5s ease-in-out infinite;
+}
+
 /* Spinning animation */
 @keyframes spin-prize-wheel {
   0% {
