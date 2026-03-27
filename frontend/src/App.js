@@ -150,29 +150,38 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="animated-bg"></div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-10 text-6xl animate-float z-10">🌸</div>
-      <div className="absolute top-20 right-20 text-6xl animate-float z-10" style={{ animationDelay: '1s' }}>🌼</div>
-      <div className="absolute bottom-20 left-20 text-6xl animate-float z-10" style={{ animationDelay: '2s' }}>🌷</div>
-      <div className="absolute bottom-10 right-10 text-6xl animate-float z-10" style={{ animationDelay: '1.5s' }}>🌻</div>
+      {/* Celebratory Decorative elements - Crowd Cheering Atmosphere */}
+      <div className="absolute top-10 left-10 text-6xl animate-float z-10">🎉</div>
+      <div className="absolute top-20 right-20 text-6xl animate-float z-10" style={{ animationDelay: '1s' }}>👏</div>
+      <div className="absolute bottom-20 left-20 text-6xl animate-float z-10" style={{ animationDelay: '2s' }}>🎊</div>
+      <div className="absolute bottom-10 right-10 text-6xl animate-float z-10" style={{ animationDelay: '1.5s' }}>🙌</div>
+      <div className="absolute top-1/3 left-5 text-5xl animate-float z-10" style={{ animationDelay: '0.5s' }}>🎈</div>
+      <div className="absolute top-1/2 right-10 text-5xl animate-float z-10" style={{ animationDelay: '1.8s' }}>✨</div>
+      <div className="absolute bottom-1/3 left-1/4 text-4xl animate-float z-10" style={{ animationDelay: '0.8s' }}>🌟</div>
+      <div className="absolute top-1/4 right-1/4 text-4xl animate-float z-10" style={{ animationDelay: '2.2s' }}>💫</div>
       
       <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Logo/Branding - Now smaller as it's also in background */}
+        {/* New Logo with Crowd Cheering Vibe */}
         <div className="text-center mb-8">
-          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-4 mb-6">
+          <div className="inline-block bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 mb-6 transform hover:scale-105 transition-all duration-300">
             <img 
-              src="/branding.jpg" 
-              alt="J.R. Initiated - Real vs Fake Estate" 
-              className="max-w-xs w-full h-auto rounded-xl"
+              src="/logo.jpg" 
+              alt="J.R. Initiated - Community Giveaway" 
+              className="max-w-md w-full h-auto rounded-2xl"
             />
+            <div className="mt-4 flex justify-center items-center gap-3 text-3xl">
+              <span className="animate-bounce">👨‍👦</span>
+              <span className="animate-pulse">❤️</span>
+              <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>🎁</span>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-green-700 mb-4 drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-bold text-green-700 mb-4 drop-shadow-lg animate-pulse">
             🌸 Spring Giveaway Wheel 🌸
           </h1>
           <p className="text-2xl md:text-3xl text-green-600 font-semibold mb-2">
-            Northeast Pennsylvania
+            Northeast Pennsylvania Community
           </p>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
             Spin the wheel for a chance to win amazing prizes! One spin per person.
           </p>
         </div>
