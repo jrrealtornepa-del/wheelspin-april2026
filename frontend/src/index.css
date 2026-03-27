@@ -43,6 +43,125 @@ code {
   }
 }
 
+/* Dynamic celebration animations */
+@keyframes celebration-float-diagonal {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -30px) rotate(90deg);
+  }
+  50% {
+    transform: translate(0, -60px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-30px, -30px) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes celebration-bounce-horizontal {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-40px) scale(1.2);
+  }
+  50% {
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    transform: translateX(40px) scale(1.2);
+  }
+}
+
+@keyframes celebration-bounce-vertical {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(180deg);
+  }
+}
+
+@keyframes celebration-float-wave {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -20px);
+  }
+  50% {
+    transform: translate(40px, 0);
+  }
+  75% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes celebration-spin-move {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg) scale(1.3);
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(240deg) scale(0.8);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes celebration-twinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.5) rotate(90deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(0.8) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.3) rotate(270deg);
+    opacity: 0.8;
+  }
+}
+
+.celebration-float-diagonal {
+  animation: celebration-float-diagonal 6s ease-in-out infinite;
+}
+
+.celebration-bounce-horizontal {
+  animation: celebration-bounce-horizontal 4s ease-in-out infinite;
+}
+
+.celebration-bounce-vertical {
+  animation: celebration-bounce-vertical 3s ease-in-out infinite;
+}
+
+.celebration-float-wave {
+  animation: celebration-float-wave 5s ease-in-out infinite;
+}
+
+.celebration-spin-move {
+  animation: celebration-spin-move 7s ease-in-out infinite;
+}
+
+.celebration-twinkle {
+  animation: celebration-twinkle 3s ease-in-out infinite;
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
