@@ -21,7 +21,7 @@
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('/branding.jpg');
+  background-image: url('../public/branding.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
