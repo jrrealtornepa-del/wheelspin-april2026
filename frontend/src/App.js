@@ -150,33 +150,44 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="animated-bg"></div>
       
-      {/* Animated Celebratory elements - Giveaway Theme */}
+      {/* Urban Street Elements - Animated and Dynamic */}
+      <div className="absolute top-20 text-7xl z-10 urban-slide-left">🏙️</div>
+      <div className="absolute top-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '2s' }}>🏢</div>
+      <div className="absolute top-60 text-5xl z-10 urban-slide-left" style={{ animationDelay: '5s' }}>🚕</div>
+      <div className="absolute bottom-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '8s' }}>🚦</div>
+      <div className="absolute bottom-20 text-7xl z-10 urban-slide-left" style={{ animationDelay: '12s' }}>🏗️</div>
+      
+      {/* Giveaway Elements - Floating */}
       <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">🎁</div>
       <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>🎉</div>
       <div className="absolute bottom-20 left-20 text-6xl z-10 celebration-float-wave" style={{ animationDelay: '2s' }}>🎊</div>
       <div className="absolute bottom-10 right-10 text-6xl z-10 celebration-spin-move" style={{ animationDelay: '1.5s' }}>✨</div>
-      <div className="absolute top-1/3 left-5 text-5xl z-10 celebration-float-diagonal" style={{ animationDelay: '0.5s' }}>🎈</div>
-      <div className="absolute top-1/2 right-10 text-5xl z-10 celebration-twinkle" style={{ animationDelay: '1.8s' }}>💝</div>
-      <div className="absolute bottom-1/3 left-1/4 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '0.8s' }}>🌟</div>
+      
+      {/* Additional Urban Elements */}
+      <div className="absolute top-1/3 left-5 text-5xl z-10 urban-float-diagonal-slow">🏪</div>
+      <div className="absolute top-1/2 right-10 text-5xl z-10 urban-zoom-pulse" style={{ animationDelay: '1.8s' }}>🌆</div>
+      <div className="absolute bottom-1/3 left-1/4 text-4xl z-10 urban-bounce-up" style={{ animationDelay: '0.8s' }}>🚌</div>
       <div className="absolute top-1/4 right-1/4 text-4xl z-10 celebration-float-wave" style={{ animationDelay: '2.2s' }}>🎀</div>
       <div className="absolute top-1/2 left-1/3 text-5xl z-10 celebration-spin-move" style={{ animationDelay: '1.2s' }}>🏆</div>
-      <div className="absolute bottom-1/4 right-1/3 text-5xl z-10 celebration-float-diagonal" style={{ animationDelay: '0.3s' }}>🎪</div>
+      <div className="absolute bottom-1/4 right-1/3 text-5xl z-10 urban-float-diagonal-slow" style={{ animationDelay: '0.3s' }}>🚧</div>
+      <div className="absolute top-3/4 left-10 text-4xl z-10 urban-zoom-pulse" style={{ animationDelay: '3s' }}>🏘️</div>
+      <div className="absolute top-1/6 right-1/3 text-5xl z-10 urban-bounce-up" style={{ animationDelay: '1.5s' }}>🛣️</div>
+      
+      {/* More Dynamic Elements */}
+      <div className="absolute top-1/2 left-10 text-6xl z-10 celebration-twinkle" style={{ animationDelay: '0.5s' }}>💎</div>
+      <div className="absolute bottom-1/2 right-20 text-5xl z-10 urban-slide-left" style={{ animationDelay: '15s' }}>🏬</div>
+      <div className="absolute top-2/3 right-10 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '2.5s' }}>🎪</div>
       
       <div className="container mx-auto px-4 py-8 relative z-10">
-        {/* Logo */}
+        {/* New Logo - Spring Cleaning 2026 Badge */}
         <div className="text-center mb-6">
-          <div className="inline-block mb-6 transform hover:scale-105 transition-all duration-300">
+          <div className="inline-block mb-6 transform hover:scale-110 transition-all duration-300 hover:rotate-3">
             <img 
-              src="/logo.jpg" 
-              alt="J.R. Initiated - Community Giveaway" 
-              className="max-w-sm w-full h-auto rounded-3xl shadow-2xl mx-auto"
-              style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.3))' }}
+              src="/logo-new.png" 
+              alt="J.R. The Realtor - Drop the L's, Take the W - Spring Cleaning 2026" 
+              className="max-w-sm md:max-w-md w-full h-auto mx-auto"
+              style={{ filter: 'drop-shadow(0 15px 40px rgba(0,0,0,0.4))' }}
             />
-            <div className="mt-3 flex justify-center items-center gap-3 text-2xl">
-              <span className="animate-bounce">👨‍👦</span>
-              <span className="animate-pulse">❤️</span>
-              <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>🎁</span>
-            </div>
           </div>
           
           {/* Modern Title with Animated Elements */}
