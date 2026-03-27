@@ -335,12 +335,14 @@ function App() {
 
   // Wheel View
   const WheelView = () => (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-blue-50 to-pink-100 flex flex-col items-center justify-center px-4">
-      <h2 className="text-4xl font-bold text-green-700 mb-8 animate-pulse">
+    <div className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-4">
+      <div className="animated-bg"></div>
+      
+      <h2 className="text-4xl font-bold text-green-700 mb-8 animate-pulse relative z-10">
         Spinning...
       </h2>
       
-      <div className="relative">
+      <div className="relative z-10">
         <div 
           ref={wheelRef}
           className="wheel-container w-80 h-80 rounded-full border-8 border-yellow-400 shadow-2xl"
@@ -376,7 +378,7 @@ function App() {
         </div>
       </div>
 
-      <p className="mt-8 text-xl text-gray-700">
+      <p className="mt-8 text-xl text-gray-700 font-semibold relative z-10 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full">
         Good luck, {formData.name}! 🍀
       </p>
     </div>
