@@ -227,57 +227,78 @@ function App() {
           </p>
         </div>
 
-        {/* Prizes Display */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 mb-8 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
-            🎁 Amazing Prizes Available! 🎁
+        {/* Prizes Display - Modern Giveaway Style */}
+        <div className="bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-6 md:p-10 mb-8 max-w-5xl mx-auto border-4 border-white/50">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-2">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500">
+              🎁 AMAZING PRIZES UP FOR GRABS! 🎁
+            </span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-4 rounded-xl shadow-lg">
-              <div className="text-4xl mb-2">💰</div>
-              <h3 className="font-bold text-white text-xl">$500 Cash Grand Prize!</h3>
-              <p className="text-yellow-100 text-sm">Ultra rare - 5% chance</p>
+          <p className="text-center text-lg md:text-xl font-bold text-gray-700 mb-6">
+            Every spin is a chance to WIN! 🏆
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="relative group bg-gradient-to-br from-yellow-400 to-yellow-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-4 border-yellow-300">
+              <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                RARE! 5%
+              </div>
+              <div className="text-5xl mb-3 text-center">💰</div>
+              <h3 className="font-black text-white text-2xl text-center mb-1">$500 CASH!</h3>
+              <p className="text-yellow-50 text-center font-bold">Grand Prize Winner!</p>
             </div>
-            <div className="bg-gradient-to-r from-blue-400 to-blue-600 p-4 rounded-xl shadow-lg">
-              <div className="text-4xl mb-2">🏊</div>
-              <h3 className="font-bold text-white text-xl">2 Kalahari Swim Park Tickets</h3>
-              <p className="text-blue-100 text-sm">20% chance</p>
+            <div className="relative group bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-4 border-blue-300">
+              <div className="absolute -top-3 -right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                20% CHANCE
+              </div>
+              <div className="text-5xl mb-3 text-center">🏊</div>
+              <h3 className="font-black text-white text-xl text-center mb-1">2 Kalahari Tickets</h3>
+              <p className="text-blue-50 text-center font-bold">Water Park Fun!</p>
             </div>
-            <div className="bg-gradient-to-r from-green-400 to-green-600 p-4 rounded-xl shadow-lg">
-              <div className="text-4xl mb-2">👕</div>
-              <h3 className="font-bold text-white text-xl">Free T-Shirt</h3>
-              <p className="text-green-100 text-sm">Great chance!</p>
+            <div className="relative group bg-gradient-to-br from-green-400 to-green-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-4 border-green-300">
+              <div className="absolute -top-3 -right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                25% CHANCE
+              </div>
+              <div className="text-5xl mb-3 text-center">👕</div>
+              <h3 className="font-black text-white text-xl text-center mb-1">Free T-Shirt</h3>
+              <p className="text-green-50 text-center font-bold">Best odds!</p>
             </div>
-            <div className="bg-gradient-to-r from-pink-400 to-pink-600 p-4 rounded-xl shadow-lg">
-              <div className="text-4xl mb-2">🧹</div>
-              <h3 className="font-bold text-white text-xl">25% Off Full House Cleaning</h3>
-              <p className="text-pink-100 text-sm">Good chance!</p>
+            <div className="relative group bg-gradient-to-br from-pink-400 to-pink-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-4 border-pink-300">
+              <div className="absolute -top-3 -right-3 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                20% CHANCE
+              </div>
+              <div className="text-5xl mb-3 text-center">🧹</div>
+              <h3 className="font-black text-white text-xl text-center mb-1">25% Off Cleaning</h3>
+              <p className="text-pink-50 text-center font-bold">Full House Service!</p>
             </div>
-            <div className="bg-gradient-to-r from-purple-400 to-purple-600 p-4 rounded-xl shadow-lg">
-              <div className="text-4xl mb-2">✨</div>
-              <h3 className="font-bold text-white text-xl">BOGO Room Cleaning</h3>
-              <p className="text-purple-100 text-sm">Good chance!</p>
+            <div className="relative group bg-gradient-to-br from-purple-400 to-purple-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-4 border-purple-300">
+              <div className="absolute -top-3 -right-3 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                20% CHANCE
+              </div>
+              <div className="text-5xl mb-3 text-center">✨</div>
+              <h3 className="font-black text-white text-xl text-center mb-1">BOGO Cleaning</h3>
+              <p className="text-purple-50 text-center font-bold">2 Rooms for 1!</p>
             </div>
-            <div className="bg-gradient-to-r from-gray-400 to-gray-600 p-4 rounded-xl shadow-lg">
-              <div className="text-4xl mb-2">🍀</div>
-              <h3 className="font-bold text-white text-xl">Better Luck Next Time</h3>
-              <p className="text-gray-100 text-sm">Small chance</p>
+            <div className="relative group bg-gradient-to-br from-gray-500 to-gray-700 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-4 border-gray-400">
+              <div className="absolute -top-3 -right-3 bg-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                10% CHANCE
+              </div>
+              <div className="text-5xl mb-3 text-center">🍀</div>
+              <h3 className="font-black text-white text-xl text-center mb-1">Try Again!</h3>
+              <p className="text-gray-50 text-center font-bold">Better luck next time</p>
             </div>
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center">
-          <button
-            onClick={() => setCurrentView('form')}
-            data-testid="spin-now-button"
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-2xl md:text-3xl font-bold py-6 px-12 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-200"
-          >
-            🎡 SPIN NOW! 🎡
-          </button>
-          <p className="mt-4 text-gray-700 font-semibold">
-            Open to Northeast Pennsylvania residents only
-          </p>
+        {/* Additional Info */}
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-green-500/90 to-blue-500/90 backdrop-blur-sm text-white px-8 py-4 rounded-2xl shadow-xl inline-block">
+            <p className="text-lg md:text-xl font-bold">
+              📍 Exclusive for Northeast Pennsylvania Residents
+            </p>
+            <p className="text-sm md:text-base mt-1 opacity-90">
+              Valid zip codes only • One spin per person
+            </p>
+          </div>
         </div>
       </div>
     </div>
