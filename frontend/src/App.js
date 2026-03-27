@@ -150,7 +150,7 @@ function App() {
         <div className="text-center mb-8">
           <div className="inline-block bg-white rounded-2xl shadow-2xl p-4 mb-6">
             <img 
-              src="https://customer-assets.emergentagent.com/job_spring-giveaway-pa/artifacts/u7ldiwd6_1000025311.jpg" 
+              src="/branding.jpg" 
               alt="J.R. Initiated - Real vs Fake Estate" 
               className="max-w-md w-full h-auto rounded-xl"
             />
