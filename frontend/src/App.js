@@ -389,8 +389,10 @@ function App() {
     const isWinner = result?.prize !== 'Better Luck Next Time';
     
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-100 via-blue-50 to-pink-100 flex items-center justify-center px-4">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-2xl w-full text-center">
+      <div className="min-h-screen relative overflow-hidden flex items-center justify-center px-4">
+        <div className="animated-bg"></div>
+        
+        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-2xl w-full text-center relative z-10">
           {isWinner ? (
             <>
               <div className="text-8xl mb-4">🎉</div>
