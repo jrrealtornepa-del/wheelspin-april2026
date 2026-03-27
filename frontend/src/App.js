@@ -147,21 +147,23 @@ function App() {
 
   // Home View
   const HomeView = () => (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-blue-50 to-pink-100 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-10 text-6xl animate-float">🌸</div>
-      <div className="absolute top-20 right-20 text-6xl animate-float" style={{ animationDelay: '1s' }}>🌼</div>
-      <div className="absolute bottom-20 left-20 text-6xl animate-float" style={{ animationDelay: '2s' }}>🌷</div>
-      <div className="absolute bottom-10 right-10 text-6xl animate-float" style={{ animationDelay: '1.5s' }}>🌻</div>
+    <div className="min-h-screen relative overflow-hidden">
+      <div className="animated-bg"></div>
       
-      <div className="container mx-auto px-4 py-12">
-        {/* Logo/Branding */}
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-10 text-6xl animate-float z-10">🌸</div>
+      <div className="absolute top-20 right-20 text-6xl animate-float z-10" style={{ animationDelay: '1s' }}>🌼</div>
+      <div className="absolute bottom-20 left-20 text-6xl animate-float z-10" style={{ animationDelay: '2s' }}>🌷</div>
+      <div className="absolute bottom-10 right-10 text-6xl animate-float z-10" style={{ animationDelay: '1.5s' }}>🌻</div>
+      
+      <div className="container mx-auto px-4 py-12 relative z-10">
+        {/* Logo/Branding - Now smaller as it's also in background */}
         <div className="text-center mb-8">
-          <div className="inline-block bg-white rounded-2xl shadow-2xl p-4 mb-6">
+          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-4 mb-6">
             <img 
               src="/branding.jpg" 
               alt="J.R. Initiated - Real vs Fake Estate" 
-              className="max-w-md w-full h-auto rounded-xl"
+              className="max-w-xs w-full h-auto rounded-xl"
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-green-700 mb-4 drop-shadow-lg">
@@ -176,7 +178,7 @@ function App() {
         </div>
 
         {/* Prizes Display */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 max-w-4xl mx-auto">
+        <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 mb-8 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
             🎁 Amazing Prizes Available! 🎁
           </h2>
@@ -223,7 +225,7 @@ function App() {
           >
             🎡 SPIN NOW! 🎡
           </button>
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-gray-700 font-semibold">
             Open to Northeast Pennsylvania residents only
           </p>
         </div>
