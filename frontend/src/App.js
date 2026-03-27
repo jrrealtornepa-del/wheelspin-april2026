@@ -38,6 +38,15 @@ function App() {
       setPrizes(response.data.prizes);
     } catch (err) {
       console.error('Error fetching prizes:', err);
+      // Use fallback prizes if API fails
+      setPrizes([
+        {"name": "$500 Cash Grand Prize", "weight": 5, "segments": 1},
+        {"name": "2 Tickets to Kalahari Swim Park", "weight": 20, "segments": 4},
+        {"name": "Free T-Shirt", "weight": 25, "segments": 5},
+        {"name": "25% Off Full House Cleaning", "weight": 20, "segments": 4},
+        {"name": "BOGO Room Cleaning", "weight": 20, "segments": 4},
+        {"name": "Better Luck Next Time", "weight": 10, "segments": 2}
+      ]);
     }
   };
 
