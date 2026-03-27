@@ -235,8 +235,10 @@ function App() {
 
   // Form View
   const FormView = () => (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-blue-50 to-pink-100 flex items-center justify-center px-4">
-      <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full">
+    <div className="min-h-screen relative overflow-hidden flex items-center justify-center px-4">
+      <div className="animated-bg"></div>
+      
+      <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-md w-full relative z-10">
         <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
           Enter Your Information
         </h2>
