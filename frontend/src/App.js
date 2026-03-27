@@ -150,24 +150,27 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="animated-bg"></div>
       
-      {/* Celebratory Decorative elements - Crowd Cheering Atmosphere */}
-      <div className="absolute top-10 left-10 text-6xl animate-float z-10">🎉</div>
-      <div className="absolute top-20 right-20 text-6xl animate-float z-10" style={{ animationDelay: '1s' }}>👏</div>
-      <div className="absolute bottom-20 left-20 text-6xl animate-float z-10" style={{ animationDelay: '2s' }}>🎊</div>
-      <div className="absolute bottom-10 right-10 text-6xl animate-float z-10" style={{ animationDelay: '1.5s' }}>🙌</div>
-      <div className="absolute top-1/3 left-5 text-5xl animate-float z-10" style={{ animationDelay: '0.5s' }}>🎈</div>
-      <div className="absolute top-1/2 right-10 text-5xl animate-float z-10" style={{ animationDelay: '1.8s' }}>✨</div>
-      <div className="absolute bottom-1/3 left-1/4 text-4xl animate-float z-10" style={{ animationDelay: '0.8s' }}>🌟</div>
-      <div className="absolute top-1/4 right-1/4 text-4xl animate-float z-10" style={{ animationDelay: '2.2s' }}>💫</div>
+      {/* Animated Celebratory elements - Moving across screen */}
+      <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">🎉</div>
+      <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>👏</div>
+      <div className="absolute bottom-20 left-20 text-6xl z-10 celebration-float-wave" style={{ animationDelay: '2s' }}>🎊</div>
+      <div className="absolute bottom-10 right-10 text-6xl z-10 celebration-spin-move" style={{ animationDelay: '1.5s' }}>🙌</div>
+      <div className="absolute top-1/3 left-5 text-5xl z-10 celebration-float-diagonal" style={{ animationDelay: '0.5s' }}>🎈</div>
+      <div className="absolute top-1/2 right-10 text-5xl z-10 celebration-twinkle" style={{ animationDelay: '1.8s' }}>✨</div>
+      <div className="absolute bottom-1/3 left-1/4 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '0.8s' }}>🌟</div>
+      <div className="absolute top-1/4 right-1/4 text-4xl z-10 celebration-float-wave" style={{ animationDelay: '2.2s' }}>💫</div>
+      <div className="absolute top-1/2 left-1/3 text-5xl z-10 celebration-spin-move" style={{ animationDelay: '1.2s' }}>🎁</div>
+      <div className="absolute bottom-1/4 right-1/3 text-5xl z-10 celebration-float-diagonal" style={{ animationDelay: '0.3s' }}>🎪</div>
       
       <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* New Logo with Crowd Cheering Vibe */}
+        {/* New Logo without white background */}
         <div className="text-center mb-8">
-          <div className="inline-block bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 mb-6 transform hover:scale-105 transition-all duration-300">
+          <div className="inline-block mb-6 transform hover:scale-105 transition-all duration-300">
             <img 
               src="/logo.jpg" 
               alt="J.R. Initiated - Community Giveaway" 
-              className="max-w-md w-full h-auto rounded-2xl"
+              className="max-w-md w-full h-auto rounded-3xl shadow-2xl"
+              style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.3))' }}
             />
             <div className="mt-4 flex justify-center items-center gap-3 text-3xl">
               <span className="animate-bounce">👨‍👦</span>
