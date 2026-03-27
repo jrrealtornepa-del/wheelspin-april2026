@@ -150,42 +150,80 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="animated-bg"></div>
       
-      {/* Animated Celebratory elements - Moving across screen */}
-      <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">🎉</div>
-      <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>👏</div>
+      {/* Animated Celebratory elements - Giveaway Theme */}
+      <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">🎁</div>
+      <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>🎉</div>
       <div className="absolute bottom-20 left-20 text-6xl z-10 celebration-float-wave" style={{ animationDelay: '2s' }}>🎊</div>
-      <div className="absolute bottom-10 right-10 text-6xl z-10 celebration-spin-move" style={{ animationDelay: '1.5s' }}>🙌</div>
+      <div className="absolute bottom-10 right-10 text-6xl z-10 celebration-spin-move" style={{ animationDelay: '1.5s' }}>✨</div>
       <div className="absolute top-1/3 left-5 text-5xl z-10 celebration-float-diagonal" style={{ animationDelay: '0.5s' }}>🎈</div>
-      <div className="absolute top-1/2 right-10 text-5xl z-10 celebration-twinkle" style={{ animationDelay: '1.8s' }}>✨</div>
+      <div className="absolute top-1/2 right-10 text-5xl z-10 celebration-twinkle" style={{ animationDelay: '1.8s' }}>💝</div>
       <div className="absolute bottom-1/3 left-1/4 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '0.8s' }}>🌟</div>
-      <div className="absolute top-1/4 right-1/4 text-4xl z-10 celebration-float-wave" style={{ animationDelay: '2.2s' }}>💫</div>
-      <div className="absolute top-1/2 left-1/3 text-5xl z-10 celebration-spin-move" style={{ animationDelay: '1.2s' }}>🎁</div>
+      <div className="absolute top-1/4 right-1/4 text-4xl z-10 celebration-float-wave" style={{ animationDelay: '2.2s' }}>🎀</div>
+      <div className="absolute top-1/2 left-1/3 text-5xl z-10 celebration-spin-move" style={{ animationDelay: '1.2s' }}>🏆</div>
       <div className="absolute bottom-1/4 right-1/3 text-5xl z-10 celebration-float-diagonal" style={{ animationDelay: '0.3s' }}>🎪</div>
       
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* New Logo without white background */}
-        <div className="text-center mb-8">
+      <div className="container mx-auto px-4 py-8 relative z-10">
+        {/* Logo */}
+        <div className="text-center mb-6">
           <div className="inline-block mb-6 transform hover:scale-105 transition-all duration-300">
             <img 
               src="/logo.jpg" 
               alt="J.R. Initiated - Community Giveaway" 
-              className="max-w-md w-full h-auto rounded-3xl shadow-2xl"
+              className="max-w-sm w-full h-auto rounded-3xl shadow-2xl mx-auto"
               style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.3))' }}
             />
-            <div className="mt-4 flex justify-center items-center gap-3 text-3xl">
+            <div className="mt-3 flex justify-center items-center gap-3 text-2xl">
               <span className="animate-bounce">👨‍👦</span>
               <span className="animate-pulse">❤️</span>
               <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>🎁</span>
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-green-700 mb-4 drop-shadow-lg animate-pulse">
-            🌸 Spring Giveaway Wheel 🌸
-          </h1>
-          <p className="text-2xl md:text-3xl text-green-600 font-semibold mb-2">
+          
+          {/* Modern Title with Animated Elements */}
+          <div className="relative inline-block mb-4">
+            <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-spin-move">🎁</div>
+            <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-spin-move" style={{ animationDelay: '0.5s' }}>🎁</div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-pink-600 mb-2 drop-shadow-2xl px-20">
+              J.R. Spring Cleaning
+            </h1>
+          </div>
+          <div className="relative inline-block mb-6">
+            <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle">✨</div>
+            <div className="absolute -right-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle" style={{ animationDelay: '0.3s' }}>✨</div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-green-600 px-16">
+              Wheel of Gifts!
+            </h2>
+          </div>
+          
+          <p className="text-xl md:text-2xl text-green-700 font-bold mb-2 bg-white/80 backdrop-blur-sm inline-block px-6 py-2 rounded-full shadow-lg">
             Northeast Pennsylvania Community
           </p>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
-            Spin the wheel for a chance to win amazing prizes! One spin per person.
+          <p className="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto font-semibold mt-3 bg-white/70 backdrop-blur-sm inline-block px-6 py-2 rounded-full">
+            Spin once for FREE amazing prizes! 🎉
+          </p>
+        </div>
+
+        {/* HUGE CTA BUTTON - Stand Out */}
+        <div className="text-center mb-10">
+          <button
+            onClick={() => setCurrentView('form')}
+            data-testid="spin-now-button"
+            className="relative group"
+          >
+            <div className="absolute -inset-2 bg-gradient-to-r from-green-400 via-blue-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 animate-pulse"></div>
+            <div className="relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-3xl md:text-5xl lg:text-6xl font-black py-8 px-16 md:px-24 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white">
+              <span className="flex items-center justify-center gap-4">
+                <span className="text-5xl md:text-6xl animate-bounce">🎡</span>
+                <span>SPIN NOW!</span>
+                <span className="text-5xl md:text-6xl animate-bounce" style={{ animationDelay: '0.2s' }}>🎁</span>
+              </span>
+              <div className="text-xl md:text-2xl font-normal mt-2 opacity-90">
+                Click to Win Prizes! 🏆
+              </div>
+            </div>
+          </button>
+          <p className="mt-6 text-lg md:text-xl text-gray-800 font-bold bg-yellow-200/80 backdrop-blur-sm inline-block px-8 py-3 rounded-full shadow-lg animate-pulse">
+            ⚡ Limited Time: One Spin Per Person! ⚡
           </p>
         </div>
 
