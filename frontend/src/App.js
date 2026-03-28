@@ -198,33 +198,34 @@ function App() {
       <div className="absolute bottom-1/5 left-1/4 text-5xl z-10 urban-slide-right" style={{ animationDelay: '18s' }}>🏊</div>
       
       <div className="container mx-auto px-4 py-6 relative z-10">
-        {/* New Logo - Circular Badge (Smaller, No Pulse) */}
+        {/* Larger Logo - Circular Badge */}
         <div className="text-center mb-4">
           <div className="inline-block mb-4 transform hover:scale-110 transition-all duration-300 hover:rotate-6">
             <img 
               src="/logo-badge.png" 
               alt="J.R. The Realtor - Drop the L's, Take the W - Spring Cleaning 2026" 
-              className="max-w-[200px] md:max-w-[250px] w-full h-auto mx-auto"
+              className="max-w-[280px] md:max-w-[350px] w-full h-auto mx-auto"
               style={{ filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.5))' }}
             />
           </div>
           
-          {/* Modern Title */}
-          <div className="relative inline-block mb-3">
-            <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-spin-move">🎁</div>
-            <div className="absolute -right-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-spin-move" style={{ animationDelay: '0.5s' }}>🎁</div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-pink-600 drop-shadow-2xl px-16">
-              J.R. Spring Cleaning
-            </h1>
-          </div>
-          
-          {/* Enhanced "Spin the Spring Clean Wheel!" - Easier to Read with Animation */}
+          {/* Title with Animated Spinning Prize Wheel Behind */}
           <div className="relative inline-block mb-4">
-            <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle">🌟</div>
-            <div className="absolute -right-10 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle" style={{ animationDelay: '0.3s' }}>🌟</div>
+            {/* Animated Spinning Prize Wheel Behind Text */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
+              <div className="prize-wheel-background"></div>
+            </div>
             
-            {/* Readable animated title with outline */}
-            <h2 className="relative text-4xl md:text-6xl lg:text-7xl font-black px-14 spring-wheel-title">
+            {/* Decorative spinning gift boxes */}
+            <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 text-3xl celebration-spin-move z-10">🎁</div>
+            <div className="absolute -right-10 top-1/2 transform -translate-y-1/2 text-3xl celebration-spin-move z-10" style={{ animationDelay: '0.5s' }}>🎁</div>
+            
+            {/* Stars on sides */}
+            <div className="absolute -left-20 top-1/4 text-3xl celebration-twinkle z-10">🌟</div>
+            <div className="absolute -right-20 top-1/4 text-3xl celebration-twinkle z-10" style={{ animationDelay: '0.3s' }}>🌟</div>
+            
+            {/* Main Title Text */}
+            <h2 className="relative text-4xl md:text-6xl lg:text-7xl font-black px-24 spring-wheel-title z-20">
               Spin the Spring Clean Wheel!
             </h2>
           </div>
