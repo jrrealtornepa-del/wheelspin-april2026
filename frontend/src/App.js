@@ -179,14 +179,14 @@ function App() {
       <div className="absolute top-2/3 right-10 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '2.5s' }}>🎪</div>
       
       <div className="container mx-auto px-4 py-8 relative z-10">
-        {/* New Logo - Spring Cleaning 2026 Badge */}
+        {/* New Logo - Circular Badge (Smaller & Animated) */}
         <div className="text-center mb-6">
-          <div className="inline-block mb-6 transform hover:scale-110 transition-all duration-300 hover:rotate-3">
+          <div className="inline-block mb-6 transform hover:scale-110 transition-all duration-300 hover:rotate-6 animate-pulse">
             <img 
-              src="/logo-new.png" 
+              src="/logo-badge.png" 
               alt="J.R. The Realtor - Drop the L's, Take the W - Spring Cleaning 2026" 
-              className="max-w-sm md:max-w-md w-full h-auto mx-auto"
-              style={{ filter: 'drop-shadow(0 15px 40px rgba(0,0,0,0.4))' }}
+              className="max-w-xs md:max-w-sm w-full h-auto mx-auto"
+              style={{ filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.5))' }}
             />
           </div>
           
@@ -198,11 +198,25 @@ function App() {
               J.R. Spring Cleaning
             </h1>
           </div>
+          
+          {/* Enhanced "Wheel of Gifts" with Special Effect */}
           <div className="relative inline-block mb-6">
-            <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle">✨</div>
-            <div className="absolute -right-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle" style={{ animationDelay: '0.3s' }}>✨</div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-green-600 px-16">
-              Wheel of Gifts!
+            <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-twinkle">✨</div>
+            <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-twinkle" style={{ animationDelay: '0.3s' }}>✨</div>
+            
+            {/* Glowing animated background effect */}
+            <div className="absolute inset-0 blur-3xl opacity-60 animate-pulse">
+              <div className="w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500"></div>
+            </div>
+            
+            {/* Main text with multiple effects */}
+            <h2 className="relative text-5xl md:text-7xl lg:text-8xl font-black px-20 wheel-title-effect">
+              <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-600 animate-pulse blur-sm">
+                Wheel of Gifts!
+              </span>
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-500 to-pink-500">
+                Wheel of Gifts!
+              </span>
             </h2>
           </div>
           
@@ -214,26 +228,36 @@ function App() {
           </p>
         </div>
 
-        {/* HUGE CTA BUTTON - Stand Out */}
-        <div className="text-center mb-10">
+        {/* CENTERED, SLIGHTLY SMALLER BUT HIGHLY ANIMATED BUTTON */}
+        <div className="text-center mb-10 flex justify-center">
           <button
             onClick={() => setCurrentView('form')}
             data-testid="spin-now-button"
-            className="relative group"
+            className="relative group animate-bounce"
+            style={{ animationDuration: '2s' }}
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-green-400 via-blue-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 animate-pulse"></div>
-            <div className="relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-3xl md:text-5xl lg:text-6xl font-black py-8 px-16 md:px-24 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white">
-              <span className="flex items-center justify-center gap-4">
-                <span className="text-5xl md:text-6xl animate-bounce">🎡</span>
-                <span>SPIN NOW!</span>
-                <span className="text-5xl md:text-6xl animate-bounce" style={{ animationDelay: '0.2s' }}>🎁</span>
+            {/* Glowing animated ring */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full blur-2xl opacity-75 group-hover:opacity-100 animate-pulse group-hover:animate-spin" style={{ animationDuration: '3s' }}></div>
+            
+            {/* Button content */}
+            <div className="relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-2xl md:text-4xl lg:text-5xl font-black py-6 px-12 md:px-20 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-yellow-300 animate-pulse">
+              <span className="flex items-center justify-center gap-3">
+                <span className="text-4xl md:text-5xl animate-spin" style={{ animationDuration: '3s' }}>🎡</span>
+                <span className="prize-button-text">SPIN NOW!</span>
+                <span className="text-4xl md:text-5xl animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }}>🎁</span>
               </span>
-              <div className="text-xl md:text-2xl font-normal mt-2 opacity-90">
+              <div className="text-lg md:text-xl font-normal mt-2 opacity-90 animate-pulse">
                 Click to Win Prizes! 🏆
               </div>
             </div>
+            
+            {/* Sparkle effects around button */}
+            <div className="absolute -top-2 -right-2 text-3xl animate-bounce">✨</div>
+            <div className="absolute -bottom-2 -left-2 text-3xl animate-bounce" style={{ animationDelay: '0.3s' }}>✨</div>
           </button>
-          <p className="mt-6 text-lg md:text-xl text-gray-800 font-bold bg-yellow-200/80 backdrop-blur-sm inline-block px-8 py-3 rounded-full shadow-lg animate-pulse">
+        </div>
+        <div className="text-center mb-8">
+          <p className="text-lg md:text-xl text-gray-800 font-bold bg-yellow-200/80 backdrop-blur-sm inline-block px-8 py-3 rounded-full shadow-lg animate-pulse">
             ⚡ Limited Time: One Spin Per Person! ⚡
           </p>
         </div>
