@@ -236,112 +236,113 @@ function App() {
           </p>
         </div>
 
-        {/* CENTERED, SLIGHTLY SMALLER BUT HIGHLY ANIMATED BUTTON */}
-        <div className="text-center mb-10 flex justify-center">
-          <button
-            onClick={() => setCurrentView('form')}
-            data-testid="spin-now-button"
-            className="relative group animate-bounce"
-            style={{ animationDuration: '2s' }}
-          >
-            {/* Glowing animated ring */}
-            <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full blur-2xl opacity-75 group-hover:opacity-100 animate-pulse group-hover:animate-spin" style={{ animationDuration: '3s' }}></div>
-            
-            {/* Button content */}
-            <div className="relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-2xl md:text-4xl lg:text-5xl font-black py-6 px-12 md:px-20 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-yellow-300 animate-pulse">
-              <span className="flex items-center justify-center gap-3">
-                <span className="text-4xl md:text-5xl animate-spin" style={{ animationDuration: '3s' }}>🎡</span>
-                <span className="prize-button-text">SPIN NOW!</span>
-                <span className="text-4xl md:text-5xl animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }}>🎁</span>
-              </span>
-              <div className="text-lg md:text-xl font-normal mt-2 opacity-90 animate-pulse">
-                Click to Win Prizes! 🏆
-              </div>
-            </div>
-            
-            {/* Sparkle effects around button */}
-            <div className="absolute -top-2 -right-2 text-3xl animate-bounce">✨</div>
-            <div className="absolute -bottom-2 -left-2 text-3xl animate-bounce" style={{ animationDelay: '0.3s' }}>✨</div>
-          </button>
-        </div>
-        <div className="text-center mb-8">
-          <p className="text-lg md:text-xl text-gray-800 font-bold bg-yellow-200/80 backdrop-blur-sm inline-block px-8 py-3 rounded-full shadow-lg animate-pulse">
-            ⚡ Limited Time: One Spin Per Person! ⚡
-          </p>
-        </div>
-
-        {/* Prizes Display - Modern Giveaway Style */}
-        <div className="bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-6 md:p-10 mb-8 max-w-5xl mx-auto border-4 border-white/50">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-2">
+        {/* Prizes Display - Compact Modern Giveaway Style */}
+        <div className="bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-6 mb-6 max-w-4xl mx-auto border-4 border-white/50">
+          <h2 className="text-2xl md:text-3xl font-black text-center mb-1">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500">
               🎁 AMAZING PRIZES UP FOR GRABS! 🎁
             </span>
           </h2>
-          <p className="text-center text-lg md:text-xl font-bold text-gray-700 mb-6">
+          <p className="text-center text-base md:text-lg font-bold text-gray-700 mb-4">
             Every spin is a chance to WIN! 🏆
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            <div className="relative group bg-gradient-to-br from-yellow-400 to-yellow-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-4 border-yellow-300">
-              <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            <div className="relative group bg-gradient-to-br from-yellow-400 to-yellow-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-3 border-yellow-300">
+              <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 RARE! 5%
               </div>
-              <div className="text-5xl mb-3 text-center">💰</div>
-              <h3 className="font-black text-white text-2xl text-center mb-1">$500 CASH!</h3>
-              <p className="text-yellow-50 text-center font-bold">Grand Prize Winner!</p>
+              <div className="text-4xl mb-2 text-center">💰</div>
+              <h3 className="font-black text-white text-lg text-center mb-1">$500 CASH!</h3>
+              <p className="text-yellow-50 text-center text-sm font-bold">Grand Prize!</p>
             </div>
-            <div className="relative group bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-4 border-blue-300">
-              <div className="absolute -top-3 -right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            <div className="relative group bg-gradient-to-br from-blue-400 to-blue-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-blue-300">
+              <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 20% CHANCE
               </div>
-              <div className="text-5xl mb-3 text-center">🏊</div>
-              <h3 className="font-black text-white text-xl text-center mb-1">2 Kalahari Tickets</h3>
-              <p className="text-blue-50 text-center font-bold">Water Park Fun!</p>
+              <div className="text-4xl mb-2 text-center">🏊</div>
+              <h3 className="font-black text-white text-lg text-center mb-1">2 Kalahari Tickets</h3>
+              <p className="text-blue-50 text-center text-sm font-bold">Water Park Fun!</p>
             </div>
-            <div className="relative group bg-gradient-to-br from-green-400 to-green-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-4 border-green-300">
-              <div className="absolute -top-3 -right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            <div className="relative group bg-gradient-to-br from-green-400 to-green-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-3 border-green-300">
+              <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 25% CHANCE
               </div>
-              <div className="text-5xl mb-3 text-center">👕</div>
-              <h3 className="font-black text-white text-xl text-center mb-1">Free T-Shirt</h3>
-              <p className="text-green-50 text-center font-bold">Best odds!</p>
+              <div className="text-4xl mb-2 text-center">📋</div>
+              <h3 className="font-black text-white text-lg text-center mb-1">Free House Analysis</h3>
+              <p className="text-green-50 text-center text-sm font-bold">Complete Breakdown!</p>
             </div>
-            <div className="relative group bg-gradient-to-br from-pink-400 to-pink-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-4 border-pink-300">
-              <div className="absolute -top-3 -right-3 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            <div className="relative group bg-gradient-to-br from-pink-400 to-pink-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-pink-300">
+              <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 20% CHANCE
               </div>
-              <div className="text-5xl mb-3 text-center">🧹</div>
-              <h3 className="font-black text-white text-xl text-center mb-1">25% Off Cleaning</h3>
-              <p className="text-pink-50 text-center font-bold">Full House Service!</p>
+              <div className="text-4xl mb-2 text-center">🧹</div>
+              <h3 className="font-black text-white text-base text-center mb-1">50% Off Top Tier</h3>
+              <p className="text-pink-50 text-center text-sm font-bold">Bath or Kitchen!</p>
             </div>
-            <div className="relative group bg-gradient-to-br from-purple-400 to-purple-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-4 border-purple-300">
-              <div className="absolute -top-3 -right-3 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            <div className="relative group bg-gradient-to-br from-purple-400 to-purple-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-3 border-purple-300">
+              <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 20% CHANCE
               </div>
-              <div className="text-5xl mb-3 text-center">✨</div>
-              <h3 className="font-black text-white text-xl text-center mb-1">BOGO Cleaning</h3>
-              <p className="text-purple-50 text-center font-bold">2 Rooms for 1!</p>
+              <div className="text-4xl mb-2 text-center">✨</div>
+              <h3 className="font-black text-white text-lg text-center mb-1">BOGO Cleaning</h3>
+              <p className="text-purple-50 text-center text-sm font-bold">2 Rooms for 1!</p>
             </div>
-            <div className="relative group bg-gradient-to-br from-gray-500 to-gray-700 p-6 rounded-2xl shadow-xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-4 border-gray-400">
-              <div className="absolute -top-3 -right-3 bg-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+            <div className="relative group bg-gradient-to-br from-gray-500 to-gray-700 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-gray-400">
+              <div className="absolute -top-2 -right-2 bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                 10% CHANCE
               </div>
-              <div className="text-5xl mb-3 text-center">🍀</div>
-              <h3 className="font-black text-white text-xl text-center mb-1">Try Again!</h3>
-              <p className="text-gray-50 text-center font-bold">Better luck next time</p>
+              <div className="text-4xl mb-2 text-center">🍀</div>
+              <h3 className="font-black text-white text-lg text-center mb-1">Try Again!</h3>
+              <p className="text-gray-50 text-center text-sm font-bold">Better luck next time</p>
             </div>
           </div>
         </div>
 
         {/* Additional Info */}
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="bg-gradient-to-r from-green-500/90 to-blue-500/90 backdrop-blur-sm text-white px-8 py-4 rounded-2xl shadow-xl inline-block">
-            <p className="text-lg md:text-xl font-bold">
+        <div className="text-center max-w-3xl mx-auto mb-4">
+          <div className="bg-gradient-to-r from-green-500/90 to-blue-500/90 backdrop-blur-sm text-white px-6 py-3 rounded-xl shadow-lg inline-block">
+            <p className="text-base md:text-lg font-bold">
               📍 Exclusive for Northeast Pennsylvania Residents
             </p>
-            <p className="text-sm md:text-base mt-1 opacity-90">
+            <p className="text-xs md:text-sm mt-1 opacity-90">
               Valid zip codes only • One spin per person
             </p>
           </div>
+        </div>
+
+        {/* BUTTON AT BOTTOM - NO FLASH/PULSE, Visible hint */}
+        <div className="text-center mb-4">
+          <div className="mb-3">
+            <p className="text-base md:text-lg text-gray-800 font-bold bg-yellow-200/80 backdrop-blur-sm inline-block px-6 py-2 rounded-full shadow-lg">
+              ⚡ Limited Time: One Spin Per Person! ⚡
+            </p>
+          </div>
+          
+          {/* Scroll indicator */}
+          <div className="mb-2 animate-bounce" style={{ animationDuration: '2s' }}>
+            <span className="text-3xl">👇</span>
+          </div>
+          
+          <button
+            onClick={() => setCurrentView('form')}
+            data-testid="spin-now-button"
+            className="relative group inline-block"
+          >
+            {/* Glowing ring - no pulse */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
+            
+            {/* Button content - no animations */}
+            <div className="relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-2xl md:text-4xl font-black py-5 px-10 md:px-16 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-yellow-300">
+              <span className="flex items-center justify-center gap-3">
+                <span className="text-3xl md:text-4xl">🎡</span>
+                <span className="text-white">SPIN NOW!</span>
+                <span className="text-3xl md:text-4xl">🎁</span>
+              </span>
+              <div className="text-base md:text-lg font-normal mt-1 opacity-90">
+                Click to Win Prizes! 🏆
+              </div>
+            </div>
+          </button>
         </div>
       </div>
     </div>
