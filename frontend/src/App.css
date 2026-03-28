@@ -124,6 +124,51 @@
   }
 }
 
+/* Special Effect for Wheel Title */
+@keyframes wheel-title-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                 0 0 20px rgba(255, 105, 180, 0.6),
+                 0 0 30px rgba(138, 43, 226, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 1),
+                 0 0 40px rgba(255, 105, 180, 0.8),
+                 0 0 60px rgba(138, 43, 226, 0.6),
+                 0 0 80px rgba(255, 0, 255, 0.4);
+  }
+}
+
+@keyframes prize-button-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.wheel-title-effect {
+  animation: wheel-title-glow 2s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+               0 0 40px rgba(255, 105, 180, 0.6),
+               0 0 60px rgba(138, 43, 226, 0.4);
+}
+
+.prize-button-text {
+  background: linear-gradient(90deg, 
+    #ffffff 0%, 
+    #ffe66d 25%, 
+    #ffffff 50%, 
+    #ffe66d 75%, 
+    #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: prize-button-shine 3s linear infinite;
+}
+
 .urban-slide-left {
   animation: urban-slide-left 25s linear infinite;
 }
