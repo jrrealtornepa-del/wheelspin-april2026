@@ -196,52 +196,42 @@ function App() {
       <div className="absolute bottom-1/2 right-20 text-5xl z-10 urban-slide-left" style={{ animationDelay: '15s' }}>🏬</div>
       <div className="absolute top-2/3 right-10 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '2.5s' }}>🎪</div>
       
-      <div className="container mx-auto px-4 py-8 relative z-10">
-        {/* New Logo - Circular Badge (Smaller & Animated) */}
-        <div className="text-center mb-6">
-          <div className="inline-block mb-6 transform hover:scale-110 transition-all duration-300 hover:rotate-6 animate-pulse">
+      <div className="container mx-auto px-4 py-6 relative z-10">
+        {/* New Logo - Circular Badge (Smaller, No Pulse) */}
+        <div className="text-center mb-4">
+          <div className="inline-block mb-4 transform hover:scale-110 transition-all duration-300 hover:rotate-6">
             <img 
               src="/logo-badge.png" 
               alt="J.R. The Realtor - Drop the L's, Take the W - Spring Cleaning 2026" 
-              className="max-w-xs md:max-w-sm w-full h-auto mx-auto"
+              className="max-w-[200px] md:max-w-[250px] w-full h-auto mx-auto"
               style={{ filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.5))' }}
             />
           </div>
           
-          {/* Modern Title with Animated Elements */}
-          <div className="relative inline-block mb-4">
-            <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-spin-move">🎁</div>
-            <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-spin-move" style={{ animationDelay: '0.5s' }}>🎁</div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-pink-600 mb-2 drop-shadow-2xl px-20">
+          {/* Modern Title */}
+          <div className="relative inline-block mb-3">
+            <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-spin-move">🎁</div>
+            <div className="absolute -right-12 top-1/2 transform -translate-y-1/2 text-3xl celebration-spin-move" style={{ animationDelay: '0.5s' }}>🎁</div>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-pink-600 drop-shadow-2xl px-16">
               J.R. Spring Cleaning
             </h1>
           </div>
           
-          {/* Enhanced "Wheel of Gifts" with Special Effect */}
-          <div className="relative inline-block mb-6">
-            <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-twinkle">✨</div>
-            <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 text-4xl celebration-twinkle" style={{ animationDelay: '0.3s' }}>✨</div>
+          {/* Enhanced "Spin the Spring Clean Wheel!" - Easier to Read with Animation */}
+          <div className="relative inline-block mb-4">
+            <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle">🌟</div>
+            <div className="absolute -right-10 top-1/2 transform -translate-y-1/2 text-3xl celebration-twinkle" style={{ animationDelay: '0.3s' }}>🌟</div>
             
-            {/* Glowing animated background effect */}
-            <div className="absolute inset-0 blur-3xl opacity-60 animate-pulse">
-              <div className="w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500"></div>
-            </div>
-            
-            {/* Main text with multiple effects */}
-            <h2 className="relative text-5xl md:text-7xl lg:text-8xl font-black px-20 wheel-title-effect">
-              <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-600 animate-pulse blur-sm">
-                Wheel of Gifts!
-              </span>
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-500 to-pink-500">
-                Wheel of Gifts!
-              </span>
+            {/* Readable animated title with outline */}
+            <h2 className="relative text-4xl md:text-6xl lg:text-7xl font-black px-14 spring-wheel-title">
+              Spin the Spring Clean Wheel!
             </h2>
           </div>
           
-          <p className="text-xl md:text-2xl text-green-700 font-bold mb-2 bg-white/80 backdrop-blur-sm inline-block px-6 py-2 rounded-full shadow-lg">
+          <p className="text-lg md:text-xl text-green-700 font-bold mb-2 bg-white/80 backdrop-blur-sm inline-block px-5 py-2 rounded-full shadow-lg">
             Northeast Pennsylvania Community
           </p>
-          <p className="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto font-semibold mt-3 bg-white/70 backdrop-blur-sm inline-block px-6 py-2 rounded-full">
+          <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-semibold mt-2 bg-white/70 backdrop-blur-sm inline-block px-5 py-2 rounded-full">
             Spin once for FREE amazing prizes! 🎉
           </p>
         </div>
