@@ -150,12 +150,12 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="animated-bg"></div>
       
-      {/* Urban Street Elements - Animated and Dynamic */}
-      <div className="absolute top-20 text-7xl z-10 urban-slide-left">🏙️</div>
-      <div className="absolute top-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '2s' }}>🏢</div>
-      <div className="absolute top-60 text-5xl z-10 urban-slide-left" style={{ animationDelay: '5s' }}>🚕</div>
-      <div className="absolute bottom-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '8s' }}>🚦</div>
-      <div className="absolute bottom-20 text-7xl z-10 urban-slide-left" style={{ animationDelay: '12s' }}>🏗️</div>
+      {/* Spring Cleaning & Prize-themed Elements - Animated and Dynamic */}
+      <div className="absolute top-20 text-7xl z-10 urban-slide-left">🧹</div>
+      <div className="absolute top-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '2s' }}>🧼</div>
+      <div className="absolute top-60 text-5xl z-10 urban-slide-left" style={{ animationDelay: '5s' }}>💰</div>
+      <div className="absolute bottom-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '8s' }}>🏊‍♂️</div>
+      <div className="absolute bottom-20 text-7xl z-10 urban-slide-left" style={{ animationDelay: '12s' }}>🧽</div>
       
       {/* Keep the W Poster - Animated Floating Element */}
       <div className="absolute top-1/4 left-1/3 z-10 urban-float-diagonal-slow" style={{ animationDelay: '3s' }}>
@@ -175,26 +175,27 @@ function App() {
         />
       </div>
       
-      {/* Giveaway Elements - Floating */}
-      <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">🎁</div>
-      <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>🎉</div>
-      <div className="absolute bottom-20 left-20 text-6xl z-10 celebration-float-wave" style={{ animationDelay: '2s' }}>🎊</div>
+      {/* Giveaway & Cleaning Elements - Floating */}
+      <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">💵</div>
+      <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>🎁</div>
+      <div className="absolute bottom-20 left-20 text-6xl z-10 celebration-float-wave" style={{ animationDelay: '2s' }}>🏆</div>
       <div className="absolute bottom-10 right-10 text-6xl z-10 celebration-spin-move" style={{ animationDelay: '1.5s' }}>✨</div>
       
-      {/* Additional Urban Elements */}
-      <div className="absolute top-1/3 left-5 text-5xl z-10 urban-float-diagonal-slow">🏪</div>
-      <div className="absolute top-1/2 right-10 text-5xl z-10 urban-zoom-pulse" style={{ animationDelay: '1.8s' }}>🌆</div>
-      <div className="absolute bottom-1/3 left-1/4 text-4xl z-10 urban-bounce-up" style={{ animationDelay: '0.8s' }}>🚌</div>
-      <div className="absolute top-1/4 right-1/4 text-4xl z-10 celebration-float-wave" style={{ animationDelay: '2.2s' }}>🎀</div>
-      <div className="absolute top-1/2 left-1/3 text-5xl z-10 celebration-spin-move" style={{ animationDelay: '1.2s' }}>🏆</div>
-      <div className="absolute bottom-1/4 right-1/3 text-5xl z-10 urban-float-diagonal-slow" style={{ animationDelay: '0.3s' }}>🚧</div>
-      <div className="absolute top-3/4 left-10 text-4xl z-10 urban-zoom-pulse" style={{ animationDelay: '3s' }}>🏘️</div>
-      <div className="absolute top-1/6 right-1/3 text-5xl z-10 urban-bounce-up" style={{ animationDelay: '1.5s' }}>🛣️</div>
+      {/* Additional Prize & Cleaning Elements */}
+      <div className="absolute top-1/3 left-5 text-5xl z-10 urban-float-diagonal-slow">🧴</div>
+      <div className="absolute top-1/2 right-10 text-5xl z-10 urban-zoom-pulse" style={{ animationDelay: '1.8s' }}>🎫</div>
+      <div className="absolute bottom-1/3 left-1/4 text-4xl z-10 urban-bounce-up" style={{ animationDelay: '0.8s' }}>🪣</div>
+      <div className="absolute top-1/4 right-1/4 text-4xl z-10 celebration-float-wave" style={{ animationDelay: '2.2s' }}>💎</div>
+      <div className="absolute top-1/2 left-1/3 text-5xl z-10 celebration-spin-move" style={{ animationDelay: '1.2s' }}>🚿</div>
+      <div className="absolute bottom-1/4 right-1/3 text-5xl z-10 urban-float-diagonal-slow" style={{ animationDelay: '0.3s' }}>🪟</div>
+      <div className="absolute top-3/4 left-10 text-4xl z-10 urban-zoom-pulse" style={{ animationDelay: '3s' }}>🧺</div>
+      <div className="absolute top-1/6 right-1/3 text-5xl z-10 urban-bounce-up" style={{ animationDelay: '1.5s' }}>🎊</div>
       
-      {/* More Dynamic Elements */}
-      <div className="absolute top-1/2 left-10 text-6xl z-10 celebration-twinkle" style={{ animationDelay: '0.5s' }}>💎</div>
-      <div className="absolute bottom-1/2 right-20 text-5xl z-10 urban-slide-left" style={{ animationDelay: '15s' }}>🏬</div>
-      <div className="absolute top-2/3 right-10 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '2.5s' }}>🎪</div>
+      {/* More Prize & Cleaning themed elements */}
+      <div className="absolute top-1/2 left-10 text-6xl z-10 celebration-twinkle" style={{ animationDelay: '0.5s' }}>🧽</div>
+      <div className="absolute bottom-1/2 right-20 text-5xl z-10 urban-slide-left" style={{ animationDelay: '15s' }}>🧹</div>
+      <div className="absolute top-2/3 right-10 text-4xl z-10 celebration-bounce-vertical" style={{ animationDelay: '2.5s' }}>💸</div>
+      <div className="absolute bottom-1/5 left-1/4 text-5xl z-10 urban-slide-right" style={{ animationDelay: '18s' }}>🏊</div>
       
       <div className="container mx-auto px-4 py-6 relative z-10">
         {/* New Logo - Circular Badge (Smaller, No Pulse) */}
