@@ -157,6 +157,24 @@ function App() {
       <div className="absolute bottom-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '8s' }}>🚦</div>
       <div className="absolute bottom-20 text-7xl z-10 urban-slide-left" style={{ animationDelay: '12s' }}>🏗️</div>
       
+      {/* Keep the W Poster - Animated Floating Element */}
+      <div className="absolute top-1/4 left-1/3 z-10 urban-float-diagonal-slow" style={{ animationDelay: '3s' }}>
+        <img 
+          src="/keep-the-w.jpg" 
+          alt="Keep the W Drop the L" 
+          className="w-32 md:w-40 h-auto rounded-xl shadow-2xl transform hover:scale-125 transition-all duration-300 opacity-80 hover:opacity-100"
+        />
+      </div>
+      
+      {/* Additional Keep the W posters in different positions */}
+      <div className="absolute bottom-1/3 right-1/4 z-10 celebration-spin-move" style={{ animationDelay: '7s' }}>
+        <img 
+          src="/keep-the-w.jpg" 
+          alt="Keep the W Drop the L" 
+          className="w-28 md:w-36 h-auto rounded-xl shadow-2xl transform hover:scale-125 transition-all duration-300 opacity-70 hover:opacity-100"
+        />
+      </div>
+      
       {/* Giveaway Elements - Floating */}
       <div className="absolute top-10 left-10 text-6xl z-10 celebration-float-diagonal">🎁</div>
       <div className="absolute top-20 right-20 text-6xl z-10 celebration-bounce-horizontal" style={{ animationDelay: '1s' }}>🎉</div>
