@@ -205,13 +205,13 @@ function App() {
       <div className="absolute bottom-1/5 left-1/4 text-5xl z-10 urban-slide-right" style={{ animationDelay: '18s' }}>🏊</div>
       
       <div className="container mx-auto px-4 py-6 relative z-10">
-        {/* Larger Logo - Circular Badge */}
+        {/* Larger Logo with Music Rhythm Animation */}
         <div className="text-center mb-4">
-          <div className="inline-block mb-4 transform hover:scale-110 transition-all duration-300 hover:rotate-6">
+          <div className="inline-block mb-4 logo-music-beat">
             <img 
               src="/logo-badge.png" 
               alt="J.R. The Realtor - Drop the L's, Take the W - Spring Cleaning 2026" 
-              className="max-w-[280px] md:max-w-[350px] w-full h-auto mx-auto"
+              className="max-w-[320px] md:max-w-[400px] w-full h-auto mx-auto"
               style={{ filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.5))' }}
             />
           </div>
@@ -237,9 +237,6 @@ function App() {
             </h2>
           </div>
           
-          <p className="text-lg md:text-xl text-green-700 font-bold mb-2 bg-white/80 backdrop-blur-sm inline-block px-5 py-2 rounded-full shadow-lg">
-            Northeast Pennsylvania Community
-          </p>
           <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-semibold mt-2 bg-white/70 backdrop-blur-sm inline-block px-5 py-2 rounded-full">
             Spin once for FREE amazing prizes! 🎉
           </p>
