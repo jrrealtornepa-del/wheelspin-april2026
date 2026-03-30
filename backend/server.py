@@ -25,8 +25,9 @@ app.add_middleware(
 
 # MongoDB connection
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://localhost:27017/spring_giveaway')
+DB_NAME = os.environ.get('DB_NAME', 'spring_giveaway')
 client = MongoClient(MONGO_URL)
-db = client.spring_giveaway
+db = client[DB_NAME]
 
 # Resend configuration
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
