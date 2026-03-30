@@ -150,6 +150,13 @@ function App() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="animated-bg"></div>
       
+      {/* Header */}
+      <div className="relative z-20 bg-gradient-to-r from-green-600 via-blue-600 to-pink-600 text-white py-2 px-4 text-center shadow-lg">
+        <p className="text-xs md:text-sm font-bold">
+          Drop the L's, & Take the W: Presented by J.R. Griffith 🏆
+        </p>
+      </div>
+      
       {/* Spring Cleaning & Prize-themed Elements - Animated and Dynamic */}
       <div className="absolute top-20 text-7xl z-10 urban-slide-left">🧹</div>
       <div className="absolute top-40 text-6xl z-10 urban-slide-right" style={{ animationDelay: '2s' }}>🧼</div>
