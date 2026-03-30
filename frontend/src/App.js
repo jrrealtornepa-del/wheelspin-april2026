@@ -263,7 +263,7 @@ function App() {
             </div>
             <div className="relative group bg-gradient-to-br from-blue-400 to-blue-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-blue-300">
               <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                20% CHANCE
+                15% CHANCE
               </div>
               <div className="text-4xl mb-2 text-center">🏊</div>
               <h3 className="font-black text-white text-lg text-center mb-1">2 Kalahari Tickets</h3>
@@ -271,15 +271,23 @@ function App() {
             </div>
             <div className="relative group bg-gradient-to-br from-green-400 to-green-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-3 border-green-300">
               <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                25% CHANCE
+                20% CHANCE
               </div>
               <div className="text-4xl mb-2 text-center">📋</div>
               <h3 className="font-black text-white text-lg text-center mb-1">Free House Analysis</h3>
               <p className="text-green-50 text-center text-sm font-bold">Complete Breakdown!</p>
             </div>
+            <div className="relative group bg-gradient-to-br from-orange-400 to-orange-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-orange-300">
+              <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                15% CHANCE
+              </div>
+              <div className="text-4xl mb-2 text-center">🗑️</div>
+              <h3 className="font-black text-white text-base text-center mb-1">FREE Junk Removal</h3>
+              <p className="text-orange-50 text-center text-sm font-bold">Declutter Cleanout!</p>
+            </div>
             <div className="relative group bg-gradient-to-br from-pink-400 to-pink-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-pink-300">
               <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                20% CHANCE
+                15% CHANCE
               </div>
               <div className="text-4xl mb-2 text-center">🧹</div>
               <h3 className="font-black text-white text-base text-center mb-1">50% Off Top Tier</h3>
@@ -287,7 +295,7 @@ function App() {
             </div>
             <div className="relative group bg-gradient-to-br from-purple-400 to-purple-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-3 border-purple-300">
               <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                20% CHANCE
+                15% CHANCE
               </div>
               <div className="text-4xl mb-2 text-center">✨</div>
               <h3 className="font-black text-white text-lg text-center mb-1">BOGO Cleaning</h3>
@@ -295,7 +303,7 @@ function App() {
             </div>
             <div className="relative group bg-gradient-to-br from-gray-500 to-gray-700 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-300 border-3 border-gray-400">
               <div className="absolute -top-2 -right-2 bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                10% CHANCE
+                5% CHANCE
               </div>
               <div className="text-4xl mb-2 text-center">🍀</div>
               <h3 className="font-black text-white text-lg text-center mb-1">Try Again!</h3>
