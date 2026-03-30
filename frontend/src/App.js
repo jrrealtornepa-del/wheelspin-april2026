@@ -36,7 +36,34 @@ function App() {
 
   useEffect(() => {
     fetchPrizes();
+    initializeAudio();
   }, []);
+
+  const initializeAudio = () => {
+    // Create audio context and sounds
+    clickSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+    spinSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
+    winSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3');
+    
+    // Background music - upbeat urban
+    backgroundMusicRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2470/2470-preview.mp3');
+    backgroundMusicRef.current.loop = true;
+    backgroundMusicRef.current.volume = 0.3;
+  };
+
+  const enableAudio = () => {
+    if (!audioEnabled) {
+      setAudioEnabled(true);
+      backgroundMusicRef.current?.play().catch(e => console.log('Audio play failed:', e));
+    }
+  };
+
+  const playClickSound = () => {
+    if (audioEnabled && clickSoundRef.current) {
+      clickSoundRef.current.currentTime = 0;
+      clickSoundRef.current.play().catch(e => console.log('Click sound failed:', e));
+    }
+  };
 
   const fetchPrizes = async () => {
     try {
