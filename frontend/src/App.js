@@ -16,7 +16,12 @@ function App() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
   const [prizes, setPrizes] = useState([]);
+  const [audioEnabled, setAudioEnabled] = useState(false);
   const wheelRef = useRef(null);
+  const backgroundMusicRef = useRef(null);
+  const clickSoundRef = useRef(null);
+  const spinSoundRef = useRef(null);
+  const winSoundRef = useRef(null);
 
   // Prize colors for the wheel
   const prizeColors = [
