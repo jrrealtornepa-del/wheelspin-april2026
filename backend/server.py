@@ -354,11 +354,21 @@ async def spin_wheel(request: SpinRequest):
             "prize": selected_prize,
             "claimed": False,
             "timestamp": datetime.utcnow(),
-            "email_sent": False
+            "email_sent": False,
+            "notification_sent": False
         }
         winners_collection.insert_one(winner_record)
         
-        # Send congratulations email asynchronously
+        # DUAL EMAIL SYSTEM:
+        # 1. Send notification to J.R. (BACKUP - always works with test email)
+        notification_sent = await send_notification_to_jr(
+            name=request.name,
+            winner_email=request.email,
+            prize=selected_prize,
+            phone=request.phone
+        )
+        
+        # 2. Try to send congratulations email to winner (works after domain verification)
         email_sent = await send_winner_email(
             name=request.name,
             email=request.email,
@@ -366,16 +376,21 @@ async def spin_wheel(request: SpinRequest):
             phone=request.phone
         )
         
-        # Update email_sent status
-        if email_sent:
-            spins_collection.update_one(
-                {"email": request.email.lower()},
-                {"$set": {"email_sent": True}}
-            )
-            winners_collection.update_one(
-                {"email": request.email.lower()},
-                {"$set": {"email_sent": True}}
-            )
+        # Update email_sent and notification_sent status
+        spins_collection.update_one(
+            {"email": request.email.lower()},
+            {"$set": {
+                "email_sent": email_sent,
+                "notification_sent": notification_sent
+            }}
+        )
+        winners_collection.update_one(
+            {"email": request.email.lower()},
+            {"$set": {
+                "email_sent": email_sent,
+                "notification_sent": notification_sent
+            }}
+        )
     
     return SpinResponse(
         success=True,
