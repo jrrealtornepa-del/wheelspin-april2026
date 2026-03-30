@@ -22,8 +22,9 @@ function App() {
   const prizeColors = [
     '#fbbf24', // gold for $500
     '#60a5fa', // blue for Kalahari
-    '#4ade80', // green for T-shirt
-    '#f9a8d4', // pink for 25% off
+    '#4ade80', // green for House Analysis
+    '#fb923c', // orange for Junk Removal
+    '#f9a8d4', // pink for 50% off
     '#a78bfa', // purple for BOGO
     '#ef4444'  // red for no win
   ];
