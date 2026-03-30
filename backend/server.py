@@ -5,6 +5,8 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 import random
+import asyncio
+import resend
 from datetime import datetime
 from typing import Optional
 
@@ -25,6 +27,11 @@ app.add_middleware(
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://localhost:27017/spring_giveaway')
 client = MongoClient(MONGO_URL)
 db = client.spring_giveaway
+
+# Resend configuration
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
+SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
+resend.api_key = RESEND_API_KEY
 
 # Collections
 spins_collection = db.spins
