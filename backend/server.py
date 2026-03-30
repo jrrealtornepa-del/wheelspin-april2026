@@ -92,13 +92,107 @@ class SpinResponse(BaseModel):
     message: str
     already_spun: bool = False
 
+async def send_winner_email(name: str, email: str, prize: str, phone: Optional[str] = None):
+    """Send congratulations email to winner"""
+    try:
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+                .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
+                .header {{ background: linear-gradient(135deg, #10b981, #3b82f6, #ec4899); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }}
+                .content {{ background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }}
+                .prize-box {{ background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; padding: 20px; margin: 20px 0; border-radius: 10px; text-align: center; font-size: 24px; font-weight: bold; }}
+                .info-box {{ background: white; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #10b981; }}
+                .footer {{ text-align: center; padding: 20px; color: #6b7280; font-size: 14px; }}
+                .button {{ display: inline-block; background: #10b981; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; margin: 10px 0; }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>🎉 CONGRATULATIONS! 🎉</h1>
+                    <h2>You're a Winner!</h2>
+                </div>
+                <div class="content">
+                    <p>Hi <strong>{name}</strong>,</p>
+                    
+                    <p>Fantastic news! You've won an amazing prize from J.R. Griffith's Spring Clean Wheel of Gifts!</p>
+                    
+                    <div class="prize-box">
+                        🎁 YOUR PRIZE 🎁<br/>
+                        {prize}
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>📅 Event Details</h3>
+                        <p>
+                            <strong>What:</strong> Drop the L's & Take the W Spring Cleaning Event<br/>
+                            <strong>When:</strong> April 26th, 2026 | 10:00 AM - 1:00 PM<br/>
+                            <strong>Where:</strong> Kirby Park, Wilkes-Barre, PA
+                        </p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>📞 How to Claim Your Prize</h3>
+                        <p>To claim your prize, please contact J.R. Griffith:</p>
+                        <ul>
+                            <li><strong>Phone:</strong> <a href="tel:570-846-5349">570-846-5349</a></li>
+                            <li><strong>Email:</strong> <a href="mailto:jrrealtornepa@gmail.com">jrrealtornepa@gmail.com</a></li>
+                            <li><strong>Facebook:</strong> <a href="https://www.Facebook.com/JRNEPA">Facebook.com/JRNEPA</a></li>
+                        </ul>
+                        <p>Please mention your prize when you reach out!</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>✨ Join Us at the Event!</h3>
+                        <p>Don't forget to attend our Spring Cleaning Event on April 26th at Kirby Park! Meet the community, enjoy the festivities, and collect your prize in person if possible.</p>
+                    </div>
+                    
+                    <p style="margin-top: 20px;">We're excited to celebrate your win with you!</p>
+                    
+                    <p><strong>Best regards,</strong><br/>
+                    J.R. Griffith<br/>
+                    J.R. The Realtor<br/>
+                    Northeast Pennsylvania</p>
+                </div>
+                <div class="footer">
+                    <p>⭐ Over 40 ☆☆☆☆☆ Reviews & 10K Followers ⭐</p>
+                    <p>📍 Northeast Pennsylvania | 📞 570-846-5349 | ✉️ jrrealtornepa@gmail.com</p>
+                    <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">
+                        This email was sent because you won a prize at the Spring Clean Wheel of Gifts.<br/>
+                        Event: April 26th, 2026 at Kirby Park, Wilkes-Barre, PA
+                    </p>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+        
+        params = {
+            "from": SENDER_EMAIL,
+            "to": [email],
+            "subject": f"🎉 Congratulations {name}! You Won: {prize}",
+            "html": html_content
+        }
+        
+        # Send email asynchronously (non-blocking)
+        result = await asyncio.to_thread(resend.Emails.send, params)
+        print(f"✅ Email sent to {email} - ID: {result.get('id')}")
+        return True
+    except Exception as e:
+        print(f"❌ Failed to send email to {email}: {str(e)}")
+        return False
+
 @app.get("/")
 def read_root():
     return {"message": "Northeast PA Spring Giveaway Wheel API", "status": "active"}
 
 @app.get("/api/health")
 def health_check():
-    return {"status": "healthy", "database": "connected"}
+    return {"status": "healthy", "database": "connected", "email": "configured"}
 
 @app.post("/api/verify-zipcode")
 def verify_zipcode(data: dict):
