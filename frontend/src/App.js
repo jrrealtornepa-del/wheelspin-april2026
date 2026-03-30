@@ -408,6 +408,56 @@ function App() {
         </div>
       </div>
       
+      {/* Volunteer & Book Event Section */}
+      <div className="relative z-20 bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 text-white py-8 px-4 text-center shadow-lg">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-black mb-4">
+            🤝 Join Us at the Event! 🤝
+          </h3>
+          <p className="text-lg md:text-xl mb-6 font-semibold">
+            Be part of the Drop the L's & Take the W Spring Cleaning Event!
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+              <div className="text-5xl mb-3">📅</div>
+              <h4 className="text-xl font-bold mb-2">Add to Calendar</h4>
+              <p className="text-sm mb-4">Don't miss out! Save the date.</p>
+              <a
+                href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Drop+the+L's+%26+Take+the+W+Spring+Cleaning+Event&dates=20260426T140000Z/20260426T170000Z&details=Join+J.R.+Griffith+for+an+exciting+spring+cleaning+giveaway+event!+Spin+the+wheel+for+amazing+prizes.&location=Kirby+Park,+Wilkes-Barre,+PA`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={playClickSound}
+                className="inline-block bg-white text-blue-600 font-bold py-3 px-6 rounded-full hover:bg-blue-100 transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
+                📆 Add to Google Calendar
+              </a>
+            </div>
+            
+            <div className="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+              <div className="text-5xl mb-3">🙋</div>
+              <h4 className="text-xl font-bold mb-2">Volunteer With Us</h4>
+              <p className="text-sm mb-4">Help make a difference in our community!</p>
+              <a
+                href="mailto:jrrealtornepa@gmail.com?subject=Volunteer%20for%20Spring%20Cleaning%20Event&body=Hi%20J.R.,%0A%0AI%20would%20like%20to%20volunteer%20at%20the%20Drop%20the%20L's%20%26%20Take%20the%20W%20Spring%20Cleaning%20Event%20on%20April%2026th,%202026.%0A%0AName:%20%0APhone:%20%0AEmail:%20%0A%0AThank%20you!"
+                onClick={playClickSound}
+                className="inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-300 transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
+                ✉️ Sign Up to Volunteer
+              </a>
+            </div>
+          </div>
+          
+          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl inline-block">
+            <p className="text-sm md:text-base font-bold">
+              📍 <strong>Location:</strong> Kirby Park, Wilkes-Barre, PA<br/>
+              🕒 <strong>Date & Time:</strong> April 26th, 2026 | 10:00 AM - 1:00 PM<br/>
+              🎁 <strong>Free Event</strong> - Prizes, Fun, & Community Spirit!
+            </p>
+          </div>
+        </div>
+      </div>
+      
       {/* Footer */}
       <div className="relative z-20 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-4 px-4 text-center shadow-lg mt-8">
         <div className="max-w-4xl mx-auto">
