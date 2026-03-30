@@ -89,14 +89,25 @@ function App() {
       const response = await axios.post(`${BACKEND_URL}/api/spin`, formData);
       
       if (response.data.success) {
-        // Spin animation
+        // Play spinning sound
+        const spinSound = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBzGA0fPTgjMGHm7A7+OZSA0PVqjn77BdGAg+ltryxnMoBS1+zPLaizsHGGS57OihUBELTKXh8bllHAU2jdXzzn0vBSh3yPDdkUELFFix6OyrWhYKQ5zd8sFuJAU3g9Pz1YU2Bhxqvu7mnEoODlOm5O+zYBoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3PLEcSYEOIbP89GBMwYfbcDu45ZLDQ5Sqefvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxXEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQprd8sJuJAY3hNHz04EzBh1swO7jl0wND1Ko5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3PLEcSYEOIbP89GBMwYfbcDu45ZLDw9Squfvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxHEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQZnd8sRxJgQ4hs/z0YEzBh9twO7jlksND1Kp5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3fLEcSYEOIbP89GBMwYfbcDu45ZLDQ9Sqefvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxHEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQZnd8sRxJgQ4hs/z0YEzBh9twO7jlksND1Kp5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3fLEcSYEOIbP89GBMwYfbcDu45ZLDQ9Sqefvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxHEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQZnd8sRxJgQ4hs/z0YEzBh9twO7jlksND1Kp5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCg==');
+        spinSound.play().catch(e => console.log('Audio play failed:', e));
+        
+        // Slower spin animation - 7 seconds
         if (wheelRef.current) {
-          const randomRotation = 1800 + Math.random() * 360;
+          const randomRotation = 2520 + Math.random() * 360; // More rotations for dramatic effect
           wheelRef.current.style.transform = `rotate(${randomRotation}deg)`;
+          wheelRef.current.style.transition = 'transform 7s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
         }
 
         // Wait for animation to complete
         setTimeout(() => {
+          // Play celebration sound for winners
+          if (response.data.prize !== 'Better Luck Next Time') {
+            const celebrationSound = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBzGA0fPTgjMGHm7A7+OZSA0PVqjn77BdGAg+ltryxnMoBS1+zPLaizsHGGS57OihUBELTKXh8bllHAU2jdXzzn0vBSh3yPDdkUELFFix6OyrWhYKQ5zd8sFuJAU3g9Pz1YU2Bhxqvu7mnEoODlOm5O+zYBoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3PLEcSYEOIbP89GBMwYfbcDu45ZLDQ5Sqefvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxXEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQprd8sJuJAY3hNHz04EzBh1swO7jl0wND1Ko5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3PLEcSYEOIbP89GBMwYfbcDu45ZLDw9Squfvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxHEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQZnd8sRxJgQ4hs/z0YEzBh9twO7jlksND1Kp5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3fLEcSYEOIbP89GBMwYfbcDu45ZLDQ9Sqefvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxHEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQZnd8sRxJgQ4hs/z0YEzBh9twO7jlksND1Kp5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCkGZ3fLEcSYEOIbP89GBMwYfbcDu45ZLDQ9Sqefvs2IaBjyT2PPKdisGLn/K8dyPQAkVW6/n7axaFwpBmd3yxHEmBDiGz/PRgTMGH23A7uOWSw0PUqnn77NiGgY8k9jzynYrBi5/yvHcj0AJFVuv5+2sWhcKQZnd8sRxJgQ4hs/z0YEzBh9twO7jlksND1Kp5++zYhoGPJPY88p2KwYuf8rx3I9ACRVbr+ftrFoXCg==');
+            celebrationSound.play().catch(e => console.log('Audio play failed:', e));
+          }
+          
           setResult(response.data);
           setSpinning(false);
           setCurrentView('result');
@@ -105,7 +116,7 @@ function App() {
           if (response.data.prize !== 'Better Luck Next Time') {
             createConfetti();
           }
-        }, 4000);
+        }, 7000); // 7 seconds to match slower animation
       } else {
         setError(response.data.message);
         setSpinning(false);
