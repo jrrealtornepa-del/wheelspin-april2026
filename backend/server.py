@@ -201,13 +201,14 @@ def verify_zipcode(data: dict):
     return {"valid": is_valid, "zipcode": zipcode}
 
 @app.post("/api/spin", response_model=SpinResponse)
-def spin_wheel(request: SpinRequest):
+async def spin_wheel(request: SpinRequest):
     """
     Perform a spin on the wheel
     - Checks if user has already spun (by email)
     - Verifies Northeast PA zipcode
     - Randomly selects a prize based on weighted probabilities
     - Stores the result
+    - Sends congratulations email to winners
     """
     
     # Check if email has already spun
@@ -241,12 +242,12 @@ def spin_wheel(request: SpinRequest):
         "zipcode": request.zipcode,
         "prize": selected_prize,
         "timestamp": datetime.utcnow(),
-        "ip_address": None  # Can be added if needed
+        "email_sent": False
     }
     
     spins_collection.insert_one(spin_record)
     
-    # If won something (not "Better Luck Next Time"), store in winners collection
+    # If won something (not "Better Luck Next Time"), store in winners collection and send email
     if selected_prize != "Better Luck Next Time":
         winner_record = {
             "name": request.name,
@@ -255,9 +256,29 @@ def spin_wheel(request: SpinRequest):
             "zipcode": request.zipcode,
             "prize": selected_prize,
             "claimed": False,
-            "timestamp": datetime.utcnow()
+            "timestamp": datetime.utcnow(),
+            "email_sent": False
         }
         winners_collection.insert_one(winner_record)
+        
+        # Send congratulations email asynchronously
+        email_sent = await send_winner_email(
+            name=request.name,
+            email=request.email,
+            prize=selected_prize,
+            phone=request.phone
+        )
+        
+        # Update email_sent status
+        if email_sent:
+            spins_collection.update_one(
+                {"email": request.email.lower()},
+                {"$set": {"email_sent": True}}
+            )
+            winners_collection.update_one(
+                {"email": request.email.lower()},
+                {"$set": {"email_sent": True}}
+            )
     
     return SpinResponse(
         success=True,
