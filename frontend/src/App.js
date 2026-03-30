@@ -652,7 +652,7 @@ function App() {
             ref={wheelRef}
             className="wheel-container w-80 h-80 md:w-96 md:h-96 rounded-full border-8 border-yellow-400 shadow-2xl"
             style={{ 
-              transition: 'transform 7s cubic-bezier(0.17, 0.67, 0.12, 0.99)',
+              transition: 'transform 10s cubic-bezier(0.17, 0.67, 0.12, 0.99)',
               transform: 'rotate(0deg)'
             }}
           >
@@ -692,14 +692,23 @@ function App() {
             </svg>
           </div>
           
-          {/* Pointer */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 z-20">
-            <div className="w-0 h-0 border-l-8 border-r-8 border-t-16 border-l-transparent border-r-transparent border-t-red-600 drop-shadow-lg"></div>
+          {/* Ticker Pointer - Positioned at top with better visibility */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6 z-30">
+            <div className="relative">
+              {/* Pointer triangle */}
+              <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-t-[30px] border-l-transparent border-r-transparent border-t-red-600 drop-shadow-2xl"></div>
+              {/* Pointer base circle */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-red-600 rounded-full border-4 border-white shadow-2xl"></div>
+            </div>
           </div>
         </div>
 
         <p className="mt-8 text-xl text-gray-700 font-semibold relative z-10 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full">
           Good luck, {formData.name}! 🍀
+        </p>
+        
+        <p className="mt-4 text-sm text-gray-600 relative z-10 bg-yellow-100/80 backdrop-blur-sm px-4 py-2 rounded-full animate-pulse">
+          🎯 Watch the ticker! It will land on your prize! 🎯
         </p>
       </div>
     );
