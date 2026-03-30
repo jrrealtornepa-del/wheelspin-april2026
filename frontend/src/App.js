@@ -205,6 +205,14 @@ function App() {
         <p className="text-xs md:text-sm font-bold">
           Drop the L's, & Take the W: Presented by J.R. Griffith 🏆
         </p>
+        {!audioEnabled && (
+          <button
+            onClick={enableAudio}
+            className="mt-1 bg-yellow-400 text-gray-900 text-xs font-bold py-1 px-3 rounded-full hover:bg-yellow-300 transition animate-pulse"
+          >
+            🔊 Enable Sound & Music
+          </button>
+        )}
       </div>
       
       {/* Spring Cleaning & Prize-themed Elements - Animated and Dynamic */}
