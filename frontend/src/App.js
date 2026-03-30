@@ -497,55 +497,74 @@ function App() {
   );
 
   // Wheel View
-  const WheelView = () => (
-    <div className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-4">
-      <div className="animated-bg"></div>
-      
-      <h2 className="text-4xl font-bold text-green-700 mb-8 animate-pulse relative z-10">
-        Spinning...
-      </h2>
-      
-      <div className="relative z-10">
-        <div 
-          ref={wheelRef}
-          className="wheel-container w-80 h-80 rounded-full border-8 border-yellow-400 shadow-2xl"
-          style={{ 
-            transition: 'transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)',
-            transform: 'rotate(0deg)'
-          }}
-        >
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            {prizes.map((prize, index) => {
-              const segments = prize.segments;
-              const startAngle = prizes.slice(0, index).reduce((sum, p) => sum + (p.segments * 360 / 20), 0);
-              const segmentAngle = (segments * 360) / 20;
-              
-              return (
-                <g key={index}>
-                  <path
-                    d={describeArc(50, 50, 45, startAngle, startAngle + segmentAngle)}
-                    fill={prizeColors[index % prizeColors.length]}
-                    stroke="white"
-                    strokeWidth="0.5"
-                  />
-                </g>
-              );
-            })}
-            <circle cx="50" cy="50" r="8" fill="white" stroke="#fbbf24" strokeWidth="2" />
-          </svg>
-        </div>
+  const WheelView = () => {
+    const prizeEmojis = ['💰', '🏊', '📋', '🗑️', '🧹', '✨', '🍀'];
+    
+    return (
+      <div className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-4">
+        <div className="animated-bg"></div>
         
-        {/* Pointer */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4">
-          <div className="w-0 h-0 border-l-8 border-r-8 border-t-16 border-l-transparent border-r-transparent border-t-red-600"></div>
+        <h2 className="text-4xl font-bold text-green-700 mb-8 animate-pulse relative z-10">
+          Spinning... 🎡
+        </h2>
+        
+        <div className="relative z-10">
+          <div 
+            ref={wheelRef}
+            className="wheel-container w-80 h-80 md:w-96 md:h-96 rounded-full border-8 border-yellow-400 shadow-2xl"
+            style={{ 
+              transition: 'transform 7s cubic-bezier(0.17, 0.67, 0.12, 0.99)',
+              transform: 'rotate(0deg)'
+            }}
+          >
+            <svg viewBox="0 0 100 100" className="w-full h-full">
+              {prizes.map((prize, index) => {
+                const segments = prize.segments;
+                const totalSegments = prizes.reduce((sum, p) => sum + p.segments, 0);
+                const startAngle = prizes.slice(0, index).reduce((sum, p) => sum + (p.segments * 360 / totalSegments), 0);
+                const segmentAngle = (segments * 360) / totalSegments;
+                const midAngle = startAngle + segmentAngle / 2;
+                const textRadius = 30;
+                const textX = 50 + textRadius * Math.cos((midAngle - 90) * Math.PI / 180);
+                const textY = 50 + textRadius * Math.sin((midAngle - 90) * Math.PI / 180);
+                
+                return (
+                  <g key={index}>
+                    <path
+                      d={describeArc(50, 50, 45, startAngle, startAngle + segmentAngle)}
+                      fill={prizeColors[index % prizeColors.length]}
+                      stroke="white"
+                      strokeWidth="0.5"
+                    />
+                    <text
+                      x={textX}
+                      y={textY}
+                      fontSize="8"
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      transform={`rotate(${midAngle}, ${textX}, ${textY})`}
+                    >
+                      {prizeEmojis[index]}
+                    </text>
+                  </g>
+                );
+              })}
+              <circle cx="50" cy="50" r="8" fill="white" stroke="#fbbf24" strokeWidth="2" />
+            </svg>
+          </div>
+          
+          {/* Pointer */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 z-20">
+            <div className="w-0 h-0 border-l-8 border-r-8 border-t-16 border-l-transparent border-r-transparent border-t-red-600 drop-shadow-lg"></div>
+          </div>
         </div>
-      </div>
 
-      <p className="mt-8 text-xl text-gray-700 font-semibold relative z-10 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full">
-        Good luck, {formData.name}! 🍀
-      </p>
-    </div>
-  );
+        <p className="mt-8 text-xl text-gray-700 font-semibold relative z-10 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full">
+          Good luck, {formData.name}! 🍀
+        </p>
+      </div>
+    );
+  };
 
   // Result View
   const ResultView = () => {
