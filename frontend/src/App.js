@@ -40,28 +40,48 @@ function App() {
   }, []);
 
   const initializeAudio = () => {
-    // Create audio context and sounds
+    // Create click sound (short, no loop)
     clickSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
-    spinSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
-    winSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3');
+    clickSoundRef.current.volume = 0.5;
     
-    // Background music - upbeat urban
-    backgroundMusicRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2470/2470-preview.mp3');
+    // Create spin sound (no loop)
+    spinSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
+    spinSoundRef.current.volume = 0.6;
+    
+    // Create win sound (no loop)
+    winSoundRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3');
+    winSoundRef.current.volume = 0.7;
+    
+    // Background music - looped urban track
+    backgroundMusicRef.current = new Audio('https://cdn.pixabay.com/audio/2022/03/10/audio_4a468f9903.mp3');
     backgroundMusicRef.current.loop = true;
-    backgroundMusicRef.current.volume = 0.3;
+    backgroundMusicRef.current.volume = 0.2;
   };
 
   const enableAudio = () => {
     if (!audioEnabled) {
       setAudioEnabled(true);
-      backgroundMusicRef.current?.play().catch(e => console.log('Audio play failed:', e));
+      if (backgroundMusicRef.current) {
+        backgroundMusicRef.current.play().catch(e => console.log('Background music failed:', e));
+      }
     }
   };
 
   const playClickSound = () => {
     if (audioEnabled && clickSoundRef.current) {
+      clickSoundRef.current.pause();
       clickSoundRef.current.currentTime = 0;
       clickSoundRef.current.play().catch(e => console.log('Click sound failed:', e));
+    }
+  };
+
+  const playTickSound = () => {
+    if (audioEnabled) {
+      // Create a short tick sound
+      const tick = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+      tick.volume = 0.3;
+      tick.playbackRate = 2.0; // Speed up for quick tick
+      tick.play().catch(e => console.log('Tick failed:', e));
     }
   };
 
