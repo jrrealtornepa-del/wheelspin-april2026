@@ -5,4 +5,4 @@ pymongo==4.6.1
 pydantic==2.5.3
 python-multipart==0.0.6
 cors==1.0.1
-fastapi-cors==0.0.6
+fastapi-cors==0.0.6resend==2.26.0
