@@ -91,6 +91,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    playClickSound();
     
     if (!formData.name || !formData.email || !formData.zipcode) {
       setError('Please fill in all required fields');
