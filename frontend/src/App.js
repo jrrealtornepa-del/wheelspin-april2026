@@ -185,6 +185,7 @@ function App() {
   };
 
   const resetApp = () => {
+    playClickSound();
     setCurrentView('home');
     setFormData({ name: '', email: '', zipcode: '', phone: '' });
     setResult(null);
