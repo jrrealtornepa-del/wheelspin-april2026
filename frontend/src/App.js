@@ -359,6 +359,28 @@ function App() {
           </button>
         </div>
       </div>
+      
+      {/* Footer */}
+      <div className="relative z-20 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-4 px-4 text-center shadow-lg mt-8">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-sm md:text-base font-bold mb-2">
+            ⭐ Over 40 ☆☆☆☆☆ Reviews & 10K Followers ⭐
+          </p>
+          <p className="text-xs md:text-sm mb-2">
+            <strong>J.R. The Realtor</strong> | Northeast Pennsylvania
+          </p>
+          <p className="text-xs md:text-sm mb-2">
+            📞 <a href="tel:570-846-5349" className="hover:text-yellow-300 transition">570-846-5349</a> | 
+            ✉️ <a href="mailto:jrrealtornepa@gmail.com" className="hover:text-yellow-300 transition ml-2">jrrealtornepa@gmail.com</a>
+          </p>
+          <p className="text-xs md:text-sm mb-2">
+            📱 <a href="https://www.Facebook.com/JRNEPA" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">Facebook.com/JRNEPA</a>
+          </p>
+          <p className="text-sm md:text-base font-bold mt-3 bg-green-600 inline-block px-6 py-2 rounded-full">
+            📅 April 26th 2026 | 10am-1pm | 📍 Kirby Park, Wilkes-Barre PA
+          </p>
+        </div>
+      </div>
     </div>
   );
 
