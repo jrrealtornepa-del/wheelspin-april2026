@@ -143,24 +143,43 @@ function App() {
       const response = await axios.post(`${BACKEND_URL}/api/spin`, formData);
       
       if (response.data.success) {
-        // Play spinning sound
+        // Play spinning sound once
         if (audioEnabled && spinSoundRef.current) {
+          spinSoundRef.current.pause();
           spinSoundRef.current.currentTime = 0;
           spinSoundRef.current.play().catch(e => console.log('Spin sound failed:', e));
         }
         
-        // Slower spin animation - 7 seconds
+        // Slower spin animation - 10 seconds for more drama
         if (wheelRef.current) {
-          const randomRotation = 2520 + Math.random() * 360; // More rotations for dramatic effect
+          const randomRotation = 3600 + Math.random() * 360; // 10 full rotations
           wheelRef.current.style.transform = `rotate(${randomRotation}deg)`;
-          wheelRef.current.style.transition = 'transform 7s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
+          wheelRef.current.style.transition = 'transform 10s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
         }
+        
+        // Play ticking sounds at intervals
+        const totalSegments = prizes.reduce((sum, p) => sum + p.segments, 0);
+        const tickInterval = 10000 / (totalSegments * 10); // Tick for each segment pass
+        let tickCount = 0;
+        const maxTicks = totalSegments * 10;
+        
+        const tickTimer = setInterval(() => {
+          if (tickCount < maxTicks) {
+            playTickSound();
+            tickCount++;
+          } else {
+            clearInterval(tickTimer);
+          }
+        }, tickInterval);
 
         // Wait for animation to complete
         setTimeout(() => {
+          clearInterval(tickTimer);
+          
           // Play celebration sound for winners
           if (response.data.prize !== 'Better Luck Next Time') {
             if (audioEnabled && winSoundRef.current) {
+              winSoundRef.current.pause();
               winSoundRef.current.currentTime = 0;
               winSoundRef.current.play().catch(e => console.log('Win sound failed:', e));
             }
@@ -174,7 +193,7 @@ function App() {
           if (response.data.prize !== 'Better Luck Next Time') {
             createConfetti();
           }
-        }, 7000); // 7 seconds to match slower animation
+        }, 10000); // 10 seconds to match slower animation
       } else {
         setError(response.data.message);
         setSpinning(false);
