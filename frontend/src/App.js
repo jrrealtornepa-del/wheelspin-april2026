@@ -386,7 +386,11 @@ function App() {
           </div>
           
           <button
-            onClick={() => setCurrentView('form')}
+            onClick={() => {
+              playClickSound();
+              enableAudio();
+              setCurrentView('form');
+            }}
             data-testid="spin-now-button"
             className="relative group inline-block"
           >
