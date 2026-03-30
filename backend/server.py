@@ -186,6 +186,103 @@ async def send_winner_email(name: str, email: str, prize: str, phone: Optional[s
         print(f"❌ Failed to send email to {email}: {str(e)}")
         return False
 
+async def send_notification_to_jr(name: str, winner_email: str, prize: str, phone: Optional[str] = None):
+    """Send notification to J.R. about new winner (BACKUP - Always works)"""
+    try:
+        phone_text = f"📱 <strong>Phone:</strong> {phone}" if phone else "📱 <strong>Phone:</strong> Not provided"
+        
+        notification_html = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+                .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
+                .header {{ background: linear-gradient(135deg, #ef4444, #f59e0b, #10b981); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }}
+                .content {{ background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }}
+                .winner-box {{ background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; padding: 20px; margin: 20px 0; border-radius: 10px; }}
+                .info-box {{ background: white; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #ef4444; }}
+                .prize-highlight {{ background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; padding: 15px; border-radius: 8px; text-align: center; font-size: 20px; font-weight: bold; margin: 15px 0; }}
+                .contact-info {{ background: #dbeafe; padding: 15px; border-radius: 8px; margin: 15px 0; }}
+                .footer {{ text-align: center; padding: 20px; color: #6b7280; font-size: 14px; }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>🏆 NEW WINNER ALERT! 🏆</h1>
+                    <h2>Someone Just Won a Prize!</h2>
+                </div>
+                <div class="content">
+                    <p><strong>Hi J.R.,</strong></p>
+                    
+                    <p>Great news! Someone just spun the wheel and won a prize. Here are the winner details:</p>
+                    
+                    <div class="winner-box">
+                        <h3 style="margin-top: 0;">👤 Winner Information</h3>
+                        <p style="font-size: 18px; margin: 5px 0;"><strong>Name:</strong> {name}</p>
+                        <p style="font-size: 18px; margin: 5px 0;">✉️ <strong>Email:</strong> {winner_email}</p>
+                        <p style="font-size: 18px; margin: 5px 0;">{phone_text}</p>
+                    </div>
+                    
+                    <div class="prize-highlight">
+                        🎁 PRIZE WON 🎁<br/>
+                        {prize}
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>📋 Next Steps</h3>
+                        <p>Please reach out to the winner to coordinate prize delivery:</p>
+                        <ol>
+                            <li>Call or email the winner to congratulate them</li>
+                            <li>Arrange prize pickup/delivery details</li>
+                            <li>Mark as "claimed" in your records once delivered</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4 style="margin-top: 0;">Quick Contact Links:</h4>
+                        <p>
+                            📧 <a href="mailto:{winner_email}">Email {name}</a><br/>
+                            {f'📱 <a href="tel:{phone}">Call {phone}</a><br/>' if phone else ''}
+                        </p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3>📊 View All Winners</h3>
+                        <p>To see all winners and their prizes, check your database at:<br/>
+                        <code>/api/winners</code></p>
+                    </div>
+                    
+                    <p style="margin-top: 20px; font-size: 14px; color: #6b7280;">
+                        <strong>Note:</strong> The winner has also been sent a congratulations email (if domain is verified). 
+                        This notification ensures you have their contact information even during testing.
+                    </p>
+                </div>
+                <div class="footer">
+                    <p>🎡 Spring Clean Wheel of Gifts - Admin Notification</p>
+                    <p>April 26th, 2026 | Kirby Park, Wilkes-Barre, PA</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+        
+        params = {
+            "from": SENDER_EMAIL,
+            "to": ["jrrealtornepa@gmail.com"],  # Always send to J.R.
+            "subject": f"🏆 NEW WINNER: {name} won {prize}!",
+            "html": notification_html
+        }
+        
+        # Send notification to J.R.
+        result = await asyncio.to_thread(resend.Emails.send, params)
+        print(f"✅ Notification sent to J.R. about winner: {name}")
+        return True
+    except Exception as e:
+        print(f"❌ Failed to send notification to J.R.: {str(e)}")
+        return False
+
 @app.get("/")
 def read_root():
     return {"message": "Northeast PA Spring Giveaway Wheel API", "status": "active"}
