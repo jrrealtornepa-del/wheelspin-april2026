@@ -64,11 +64,12 @@ NORTHEAST_PA_ZIPCODES = [
 # Prize configuration with weighted probabilities
 PRIZES = [
     {"name": "$500 Cash Grand Prize", "weight": 5, "segments": 1},
-    {"name": "2 Tickets to Kalahari Swim Park", "weight": 20, "segments": 4},
-    {"name": "One Free House Analysis Breakdown", "weight": 25, "segments": 5},
-    {"name": "50% Off Bathroom or Kitchen Top Tier Cleaning Services", "weight": 20, "segments": 4},
-    {"name": "BOGO Room Cleaning", "weight": 20, "segments": 4},
-    {"name": "Better Luck Next Time", "weight": 10, "segments": 2},
+    {"name": "2 Tickets to Kalahari Swim Park", "weight": 15, "segments": 3},
+    {"name": "One Free House Analysis Breakdown", "weight": 20, "segments": 4},
+    {"name": "ONE FREE House Declutter/Items Removal Clean out (Junk Removal)", "weight": 15, "segments": 3},
+    {"name": "50% Off Bathroom or Kitchen Top Tier Cleaning Services", "weight": 15, "segments": 3},
+    {"name": "BOGO Room Cleaning", "weight": 15, "segments": 3},
+    {"name": "Better Luck Next Time", "weight": 15, "segments": 3},
 ]
 
 # Models
