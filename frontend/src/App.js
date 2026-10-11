@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
+import SocialSection from './components/SocialSection';
+import ScheduleSection from './components/ScheduleSection';
+import { useScrollReveal, useScrollProgress } from './hooks/useScrollEffects';
+import { FACEBOOK_PAGE_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE } from './config/social';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
 
@@ -22,6 +26,12 @@ function App() {
   const clickSoundRef = useRef(null);
   const spinSoundRef = useRef(null);
   const winSoundRef = useRef(null);
+  const scrollProgress = useScrollProgress();
+  useScrollReveal(currentView);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [currentView]);
 
   // Prize colors for the wheel
   const prizeColors = [
@@ -247,7 +257,7 @@ function App() {
         {!audioEnabled && (
           <button
             onClick={enableAudio}
-            className="mt-1 bg-yellow-400 text-gray-900 text-xs font-bold py-1 px-3 rounded-full hover:bg-yellow-300 transition animate-pulse"
+            className="btn-3d btn-3d-gold mt-2 text-xs py-1.5 px-4"
           >
             🔊 Enable Sound & Music
           </button>
@@ -303,7 +313,7 @@ function App() {
       
       <div className="container mx-auto px-4 py-6 relative z-10">
         {/* Larger Logo with Music Rhythm Animation */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 reveal">
           <div className="inline-block mb-4 logo-music-beat">
             <img 
               src="/logo-badge.png" 
@@ -340,7 +350,7 @@ function App() {
         </div>
 
         {/* Prizes Display - Compact Modern Giveaway Style */}
-        <div className="bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-6 mb-6 max-w-4xl mx-auto border-4 border-white/50">
+        <div className="depth-card reveal bg-gradient-to-br from-white/95 via-white/90 to-white/95 backdrop-blur-md rounded-3xl p-4 md:p-6 mb-6 max-w-4xl mx-auto border-4 border-white/50">
           <h2 className="text-2xl md:text-3xl font-black text-center mb-1">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500">
               🎁 AMAZING PRIZES UP FOR GRABS! 🎁
@@ -349,7 +359,7 @@ function App() {
           <p className="text-center text-base md:text-lg font-bold text-gray-700 mb-4">
             Every spin is a chance to WIN! 🏆
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+          <div className="prize-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             <div className="relative group bg-gradient-to-br from-yellow-400 to-yellow-600 p-4 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-1 transition-all duration-300 border-3 border-yellow-300">
               <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 RARE! 5%
@@ -410,8 +420,8 @@ function App() {
         </div>
 
         {/* Additional Info */}
-        <div className="text-center max-w-3xl mx-auto mb-4">
-          <div className="bg-gradient-to-r from-green-500/90 to-blue-500/90 backdrop-blur-sm text-white px-6 py-3 rounded-xl shadow-lg inline-block">
+        <div className="text-center max-w-3xl mx-auto mb-4 reveal">
+          <div className="depth-card bg-gradient-to-r from-green-500/90 to-blue-500/90 backdrop-blur-sm text-white px-6 py-3 rounded-2xl inline-block">
             <p className="text-base md:text-lg font-bold">
               📍 Exclusive for Northeast Pennsylvania Residents
             </p>
@@ -422,7 +432,7 @@ function App() {
         </div>
 
         {/* BUTTON AT BOTTOM - NO FLASH/PULSE, Visible hint */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-12 reveal">
           <div className="mb-3">
             <p className="text-base md:text-lg text-gray-800 font-bold bg-yellow-200/80 backdrop-blur-sm inline-block px-6 py-2 rounded-full shadow-lg">
               ⚡ Limited Time: One Spin Per Person! ⚡
@@ -441,13 +451,13 @@ function App() {
               setCurrentView('form');
             }}
             data-testid="spin-now-button"
-            className="relative group inline-block"
+            className="relative group inline-block hero-cta"
           >
             {/* Glowing ring - no pulse */}
             <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
             
             {/* Button content - no animations */}
-            <div className="relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-2xl md:text-4xl font-black py-5 px-10 md:px-16 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-yellow-300">
+            <div className="hero-cta-face relative bg-gradient-to-r from-green-500 via-blue-600 to-pink-600 text-white text-2xl md:text-4xl font-black py-5 px-10 md:px-16 rounded-full border-4 border-yellow-300">
               <span className="flex items-center justify-center gap-3">
                 <span className="text-3xl md:text-4xl">🎡</span>
                 <span className="text-white">SPIN NOW!</span>
@@ -461,51 +471,12 @@ function App() {
         </div>
       </div>
       
-      {/* Volunteer & Book Event Section - Combined */}
-      <div className="relative z-20 bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 text-white py-8 px-4 text-center shadow-lg">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-black mb-4">
-            🤝 Join Us & Volunteer at the Event! 🤝
-          </h3>
-          <p className="text-lg md:text-xl mb-6 font-semibold">
-            Be part of the Drop the L's & Take the W Spring Cleaning Event!
-          </p>
-          
-          <div className="bg-white/20 backdrop-blur-sm p-8 rounded-xl max-w-2xl mx-auto mb-6">
-            <div className="text-6xl mb-4">📅 🙋‍♂️</div>
-            <h4 className="text-2xl font-bold mb-3">Volunteer & Save the Date</h4>
-            <p className="text-base mb-6">
-              Add this event to your calendar and let us know you want to volunteer!<br/>
-              We'll reach out with volunteer details closer to the date.
-            </p>
-            <a
-              href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Volunteer:+Drop+the+L's+%26+Take+the+W+Spring+Cleaning+Event&dates=20260426T140000Z/20260426T170000Z&details=I+want+to+VOLUNTEER+at+J.R.+Griffith's+spring+cleaning+giveaway+event!%0A%0APlease+contact+me+at:+jrrealtornepa@gmail.com%0A%0AEvent+includes+prize+wheel,+community+fun,+and+helping+neighbors!&location=Kirby+Park,+Wilkes-Barre,+PA`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={playClickSound}
-              className="inline-block bg-yellow-400 text-gray-900 font-bold text-lg py-4 px-8 rounded-full hover:bg-yellow-300 transition-all duration-200 transform hover:scale-105 shadow-2xl"
-            >
-              📆 Add to Calendar & Volunteer
-            </a>
-            <p className="text-sm mt-4 opacity-90">
-              By adding to your calendar, you're expressing interest in volunteering.<br/>
-              We'll contact you via the email associated with your Google Calendar.
-            </p>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl inline-block">
-            <p className="text-sm md:text-base font-bold">
-              📍 <strong>Location:</strong> Kirby Park, Wilkes-Barre, PA<br/>
-              🕒 <strong>Date & Time:</strong> April 26th, 2026 | 10:00 AM - 1:00 PM<br/>
-              🎁 <strong>Free Event</strong> - Prizes, Fun, & Community Spirit!<br/>
-              💪 <strong>Volunteers Needed</strong> - Help make a difference!
-            </p>
-          </div>
-        </div>
-      </div>
+      <ScheduleSection onClick={playClickSound} />
+
+      <SocialSection onClick={playClickSound} />
       
       {/* Footer */}
-      <div className="relative z-20 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-4 px-4 text-center shadow-lg mt-8">
+      <footer className="relative z-20 bg-black text-white py-8 px-4 text-center border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm md:text-base font-bold mb-2">
             ⭐ Over 40 ☆☆☆☆☆ Reviews & 10K Followers ⭐
@@ -518,13 +489,15 @@ function App() {
             ✉️ <a href="mailto:jrrealtornepa@gmail.com" className="hover:text-yellow-300 transition ml-2">jrrealtornepa@gmail.com</a>
           </p>
           <p className="text-xs md:text-sm mb-2">
-            📱 <a href="https://www.Facebook.com/JRNEPA" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">Facebook.com/JRNEPA</a>
+            📱 <a href={FACEBOOK_PAGE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">Facebook.com/JRNEPA</a>
+            {' | '}
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition">Instagram @{INSTAGRAM_HANDLE}</a>
           </p>
-          <p className="text-sm md:text-base font-bold mt-3 bg-green-600 inline-block px-6 py-2 rounded-full">
+          <a href="#schedule" className="btn-3d btn-3d-green text-sm md:text-base mt-3 py-2 px-6">
             📅 April 26th 2026 | 10am-1pm | 📍 Kirby Park, Wilkes-Barre PA
-          </p>
+          </a>
         </div>
-      </div>
+      </footer>
     </div>
   );
 
@@ -533,7 +506,7 @@ function App() {
     <div className="min-h-screen relative overflow-hidden flex items-center justify-center px-4">
       <div className="animated-bg"></div>
       
-      <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-md w-full relative z-10">
+      <div className="depth-card reveal bg-white/95 backdrop-blur-sm rounded-3xl p-8 max-w-md w-full relative z-10 my-10">
         <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
           Enter Your Information
         </h2>
@@ -612,7 +585,7 @@ function App() {
           <button
             type="submit"
             data-testid="submit-spin-button"
-            className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl font-bold py-4 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="btn-3d btn-3d-green w-full justify-center text-xl py-4"
           >
             Spin the Wheel! 🎡
           </button>
@@ -620,7 +593,7 @@ function App() {
 
         <button
           onClick={resetApp}
-          className="mt-4 w-full text-gray-600 hover:text-gray-800 font-medium"
+          className="btn-3d btn-3d-light w-full justify-center mt-4 py-3"
         >
           ← Back to Home
         </button>
@@ -715,7 +688,7 @@ function App() {
       <div className="min-h-screen relative overflow-hidden flex items-center justify-center px-4">
         <div className="animated-bg"></div>
         
-        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-2xl w-full text-center relative z-10">
+        <div className="depth-card reveal bg-white/95 backdrop-blur-sm rounded-3xl p-8 max-w-2xl w-full text-center relative z-10 my-10">
           {isWinner ? (
             <>
               <div className="text-8xl mb-4">🎉</div>
@@ -755,7 +728,7 @@ function App() {
           <button
             onClick={resetApp}
             data-testid="back-home-button"
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl font-bold py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="btn-3d btn-3d-green text-xl py-4 px-8"
           >
             Back to Home
           </button>
@@ -788,10 +761,26 @@ function App() {
 
   return (
     <div>
-      {currentView === 'home' && <HomeView />}
-      {currentView === 'form' && <FormView />}
-      {currentView === 'wheel' && <WheelView />}
-      {currentView === 'result' && <ResultView />}
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+        aria-hidden="true"
+      />
+      {/* Called as functions so inputs keep focus between keystrokes instead of remounting */}
+      {currentView === 'home' && HomeView()}
+      {currentView === 'form' && FormView()}
+      {currentView === 'wheel' && WheelView()}
+      {currentView === 'result' && ResultView()}
+      {scrollProgress > 0.15 && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="btn-3d btn-3d-gold back-to-top"
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }
