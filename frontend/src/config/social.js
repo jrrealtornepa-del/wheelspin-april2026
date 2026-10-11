@@ -1,7 +1,7 @@
 export const FACEBOOK_PAGE_URL = 'https://www.facebook.com/JRNEPA';
 export const FACEBOOK_PAGE_NAME = 'NORTHEAST JR.';
 
-export const INSTAGRAM_HANDLE = process.env.REACT_APP_INSTAGRAM_HANDLE || 'jrnepa';
+export const INSTAGRAM_HANDLE = process.env.REACT_APP_INSTAGRAM_HANDLE || 'j.r.northeast';
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 
 export const GOOGLE_CALENDAR_ID =
